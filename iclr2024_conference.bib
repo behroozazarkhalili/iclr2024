@@ -1,0 +1,381 @@
+@misc{abnar2020b,
+  title = {Quantifying {{Attention Flow}} in {{Transformers}}},
+  author = {Abnar, Samira and Zuidema, Willem},
+  year = {2020},
+  month = may,
+  number = {arXiv:2005.00928},
+  eprint = {2005.00928},
+  primaryclass = {cs},
+  publisher = {{arXiv}},
+  urldate = {2023-12-15},
+  abstract = {In the Transformer model, "self-attention" combines information from attended embeddings into the representation of the focal embedding in the next layer. Thus, across layers of the Transformer, information originating from different tokens gets increasingly mixed. This makes attention weights unreliable as explanations probes. In this paper, we consider the problem of quantifying this flow of information through self-attention. We propose two methods for approximating the attention to input tokens given attention weights, attention rollout and attention flow, as post hoc methods when we use attention weights as the relative relevance of the input tokens. We show that these methods give complementary views on the flow of information, and compared to raw attention, both yield higher correlations with importance scores of input tokens obtained using an ablation method and input gradients.},
+  archiveprefix = {arxiv},
+  keywords = {Computer Science - Artificial Intelligence,Computer Science - Computation and Language,Computer Science - Machine Learning},
+  file = {/home/ermia/Zotero/storage/TH2PSHRA/Abnar and Zuidema - 2020 - Quantifying Attention Flow in Transformers.pdf;/home/ermia/Zotero/storage/LMNCLM86/2005.html}
+}
+
+@inproceedings{axiotis2022,
+  title = {Faster {{Sparse Minimum Cost Flow}} by {{Electrical Flow Localization}}},
+  booktitle = {2021 {{IEEE}} 62nd {{Annual Symposium}} on {{Foundations}} of {{Computer Science}} ({{FOCS}})},
+  author = {Axiotis, Kyriakos and Madry, Aleksander and Vladu, Adrian},
+  year = {2022},
+  month = feb,
+  pages = {528--539},
+  publisher = {{IEEE}},
+  address = {{Denver, CO, USA}},
+  doi = {10.1109/FOCS52979.2021.00059},
+  urldate = {2023-12-16},
+  abstract = {We give an O(m3/2-1/762 log(U + W )) time algorithm for minimum cost flow with capacities bounded by U and costs bounded by W . For sparse graphs with general capacities, this is the first algorithm to improve over the O(m3/2 logO(1)(U + W )) running time obtained by an appropriate instantiation of an interior point method [Daitch-Spielman, 2008].},
+  isbn = {978-1-66542-055-6},
+  langid = {english},
+  file = {/home/ermia/Zotero/storage/62GWT8V7/Axiotis et al. - 2022 - Faster Sparse Minimum Cost Flow by Electrical Flow.pdf}
+}
+
+@book{bertsimas1997,
+  title = {Introduction to Linear Optimization},
+  author = {Bertsimas, Dimitris and Tsitsiklis, John N.},
+  year = {1997},
+  series = {Athena {{Scientific}} Series in Optimization and Neural Computation},
+  publisher = {{Athena Scientific}},
+  address = {{Belmont, Mass}},
+  isbn = {978-1-886529-19-9},
+  langid = {english},
+  lccn = {T57.74 .B465 1997},
+  keywords = {Linear programming,Mathematical optimization},
+  file = {/home/ermia/Zotero/storage/JSS2H8AA/Bertsimas and Tsitsiklis - 1997 - Introduction to linear optimization.pdf}
+}
+
+@article{bosschietera,
+  title = {Are {{Attention Flows All You Need}}?},
+  author = {Bosschieter, Tomas M},
+  abstract = {While deep learning has achieved many successes in fields such as computer vision and NLP, the lack of explainability remains a severe problem, especially in NLP. While Shapley values, a solution concept in cooperative game theory, have been heavily popularized, they suffer from mathematical incompatibilities and not providing natural human-centric explanations. As one alternative to Shapley values, attention weights have been put forward as explainable in recent literature, although there is no one-fold interpretation they provide. One promising concept is that of Attention Flows, which state that the total outgoing flow of a node in a max flow graph of a neural network with attention values as weights is the node's Shapley value at the layer-level. We first discuss attention versus Shapley values, and then do a case study how these attention flows differ from the raw attention weights.},
+  langid = {english},
+  file = {/home/ermia/Zotero/storage/LAWB66C9/Bosschieter - Are Attention Flows All You Need.pdf}
+}
+
+@book{boyd2004,
+  title = {Convex Optimization},
+  author = {Boyd, Stephen P. and Vandenberghe, Lieven},
+  year = {2004},
+  publisher = {{Cambridge University Press}},
+  address = {{Cambridge, UK ; New York}},
+  isbn = {978-0-521-83378-3},
+  langid = {english},
+  lccn = {QA402.5 .B69 2004},
+  keywords = {Convex functions,Mathematical optimization},
+  file = {/home/ermia/Zotero/storage/6Y2MD84Y/Boyd and Vandenberghe - 2004 - Convex optimization.pdf}
+}
+
+@misc{brand2021a,
+  title = {Faster {{Maxflow}} via {{Improved Dynamic Spectral Vertex Sparsifiers}}},
+  author = {van den Brand, Jan and Gao, Yu and Jambulapati, Arun and Lee, Yin Tat and Liu, Yang P. and Peng, Richard and Sidford, Aaron},
+  year = {2021},
+  month = dec,
+  number = {arXiv:2112.00722},
+  eprint = {2112.00722},
+  primaryclass = {cs, math},
+  publisher = {{arXiv}},
+  urldate = {2023-12-19},
+  abstract = {We make several advances broadly related to the maintenance of electrical flows in weighted graphs undergoing dynamic resistance updates, including: 1. More efficient dynamic spectral vertex sparsification, achieved by faster length estimation of random walks in weighted graphs using Morris counters [Morris 1978, Nelson-Yu 2020]. 2. A direct reduction from detecting edges with large energy in dynamic electric flows to dynamic spectral vertex sparsifiers. 3. A procedure for turning algorithms for estimating a sequence of vectors under updates from an oblivious adversary to one that tolerates adaptive adversaries via the Gaussian-mechanism from differential privacy. Combining these pieces with modifications to prior robust interior point frameworks gives an algorithm that on graphs with \$m\$ edges computes a mincost flow with edge costs and capacities in \$[1, U]\$ in time \${\textbackslash}widetilde\{O\}(m\^\{3/2-1/58\} {\textbackslash}log\^2 U)\$. In prior and independent work, [Axiotis-M{\textbackslash}k\{a\}dry-Vladu FOCS 2021] also obtained an improved algorithm for sparse mincost flows on capacitated graphs. Our algorithm implies a \${\textbackslash}widetilde\{O\}(m\^\{3/2-1/58\} {\textbackslash}log U)\$ time maxflow algorithm, improving over the \${\textbackslash}widetilde\{O\}(m\^\{3/2-1/328\}{\textbackslash}log U)\$ time maxflow algorithm of [Gao-Liu-Peng FOCS 2021].},
+  archiveprefix = {arxiv},
+  keywords = {Computer Science - Data Structures and Algorithms,Mathematics - Optimization and Control},
+  file = {/home/ermia/Zotero/storage/NVE97YD6/Brand et al. - 2021 - Faster Maxflow via Improved Dynamic Spectral Verte.pdf;/home/ermia/Zotero/storage/CHV3XSG7/2112.html}
+}
+
+@misc{brand2021c,
+  title = {Minimum {{Cost Flows}}, {{MDPs}}, and \${\textbackslash}ell\_1\$-{{Regression}} in {{Nearly Linear Time}} for {{Dense Instances}}},
+  author = {van den Brand, Jan and Lee, Yin Tat and Liu, Yang P. and Saranurak, Thatchaphol and Sidford, Aaron and Song, Zhao and Wang, Di},
+  year = {2021},
+  month = aug,
+  number = {arXiv:2101.05719},
+  eprint = {2101.05719},
+  primaryclass = {cs, math},
+  publisher = {{arXiv}},
+  urldate = {2023-12-19},
+  abstract = {In this paper we provide new randomized algorithms with improved runtimes for solving linear programs with two-sided constraints. In the special case of the minimum cost flow problem on \$n\$-vertex \$m\$-edge graphs with integer polynomially-bounded costs and capacities we obtain a randomized method which solves the problem in \${\textbackslash}tilde\{O\}(m+n\^\{1.5\})\$ time. This improves upon the previous best runtime of \${\textbackslash}tilde\{O\}(m{\textbackslash}sqrt\{n\})\$ (Lee-Sidford 2014) and, in the special case of unit-capacity maximum flow, improves upon the previous best runtimes of \$m\^\{4/3+o(1)\}\$ (Liu-Sidford 2020, Kathuria 2020) and \${\textbackslash}tilde\{O\}(m{\textbackslash}sqrt\{n\})\$ (Lee-Sidford 2014) for sufficiently dense graphs. For \${\textbackslash}ell\_1\$-regression in a matrix with \$n\$-columns and \$m\$-rows we obtain a randomized method which computes an \${\textbackslash}epsilon\$-approximate solution in \${\textbackslash}tilde\{O\}(mn+n\^\{2.5\})\$ time. This yields a randomized method which computes an \${\textbackslash}epsilon\$-optimal policy of a discounted Markov Decision Process with \$S\$ states and \$A\$ actions per state in time \${\textbackslash}tilde\{O\}(S\^2A+S\^\{2.5\})\$. These methods improve upon the previous best runtimes of methods which depend polylogarithmically on problem parameters, which were \${\textbackslash}tilde\{O\}(mn\^\{1.5\})\$ (Lee-Sidford 2015) and \${\textbackslash}tilde\{O\}(S\^\{2.5\}A)\$ (Lee-Sidford 2014, Sidford-Wang-Wu-Ye 2018). To obtain this result we introduce two new algorithmic tools of independent interest. First, we design a new general interior point method for solving linear programs with two sided constraints which combines techniques from (Lee-Song-Zhang 2019, Brand et al. 2020) to obtain a robust stochastic method with iteration count nearly the square root of the smaller dimension. Second, to implement this method we provide dynamic data structures for efficiently maintaining approximations to variants of Lewis-weights, a fundamental importance measure for matrices which generalize leverage scores and effective resistances.},
+  archiveprefix = {arxiv},
+  keywords = {Computer Science - Data Structures and Algorithms,Mathematics - Optimization and Control},
+  file = {/home/ermia/Zotero/storage/ZHED3PGL/Brand et al. - 2021 - Minimum Cost Flows, MDPs, and $ell_1$-Regression .pdf;/home/ermia/Zotero/storage/G4UPT3SZ/2101.html}
+}
+
+@misc{brand2022,
+  title = {Dynamic {{Maxflow}} via {{Dynamic Interior Point Methods}}},
+  author = {van den Brand, Jan and Liu, Yang P. and Sidford, Aaron},
+  year = {2022},
+  month = dec,
+  number = {arXiv:2212.06315},
+  eprint = {2212.06315},
+  primaryclass = {cs, math},
+  publisher = {{arXiv}},
+  urldate = {2023-12-09},
+  abstract = {In this paper we provide an algorithm for maintaining a \$(1-{\textbackslash}epsilon)\$-approximate maximum flow in a dynamic, capacitated graph undergoing edge additions. Over a sequence of \$m\$-additions to an \$n\$-node graph where every edge has capacity \$O({\textbackslash}mathrm\{poly\}(m))\$ our algorithm runs in time \${\textbackslash}widehat\{O\}(m {\textbackslash}sqrt\{n\} {\textbackslash}cdot {\textbackslash}epsilon\^\{-1\})\$. To obtain this result we design dynamic data structures for the more general problem of detecting when the value of the minimum cost circulation in a dynamic graph undergoing edge additions obtains value at most \$F\$ (exactly) for a given threshold \$F\$. Over a sequence \$m\$-additions to an \$n\$-node graph where every edge has capacity \$O({\textbackslash}mathrm\{poly\}(m))\$ and cost \$O({\textbackslash}mathrm\{poly\}(m))\$ we solve this thresholded minimum cost flow problem in \${\textbackslash}widehat\{O\}(m {\textbackslash}sqrt\{n\})\$. Both of our algorithms succeed with high probability against an adaptive adversary. We obtain these results by dynamizing the recent interior point method used to obtain an almost linear time algorithm for minimum cost flow (Chen, Kyng, Liu, Peng, Probst Gutenberg, Sachdeva 2022), and introducing a new dynamic data structure for maintaining minimum ratio cycles in an undirected graph that succeeds with high probability against adaptive adversaries.},
+  archiveprefix = {arxiv},
+  keywords = {Computer Science - Data Structures and Algorithms,Mathematics - Optimization and Control},
+  file = {/home/ermia/Zotero/storage/8H37DSHV/Brand et al. - 2022 - Dynamic Maxflow via Dynamic Interior Point Methods.pdf;/home/ermia/Zotero/storage/C9KRRHXA/2212.html}
+}
+
+@misc{bubeck2015,
+  title = {Convex {{Optimization}}: {{Algorithms}} and {{Complexity}}},
+  shorttitle = {Convex {{Optimization}}},
+  author = {Bubeck, S{\'e}bastien},
+  year = {2015},
+  month = nov,
+  number = {arXiv:1405.4980},
+  eprint = {1405.4980},
+  primaryclass = {cs, math, stat},
+  publisher = {{arXiv}},
+  urldate = {2023-12-14},
+  abstract = {This monograph presents the main complexity theorems in convex optimization and their corresponding algorithms. Starting from the fundamental theory of black-box optimization, the material progresses towards recent advances in structural optimization and stochastic optimization. Our presentation of black-box optimization, strongly influenced by Nesterov's seminal book and Nemirovski's lecture notes, includes the analysis of cutting plane methods, as well as (accelerated) gradient descent schemes. We also pay special attention to non-Euclidean settings (relevant algorithms include Frank-Wolfe, mirror descent, and dual averaging) and discuss their relevance in machine learning. We provide a gentle introduction to structural optimization with FISTA (to optimize a sum of a smooth and a simple non-smooth term), saddle-point mirror prox (Nemirovski's alternative to Nesterov's smoothing), and a concise description of interior point methods. In stochastic optimization we discuss stochastic gradient descent, mini-batches, random coordinate descent, and sublinear algorithms. We also briefly touch upon convex relaxation of combinatorial problems and the use of randomness to round solutions, as well as random walks based methods.},
+  archiveprefix = {arxiv},
+  keywords = {Computer Science - Computational Complexity,Computer Science - Machine Learning,Mathematics - Numerical Analysis,Mathematics - Optimization and Control,Statistics - Machine Learning},
+  file = {/home/ermia/Zotero/storage/PSL5F8RF/Bubeck - 2015 - Convex Optimization Algorithms and Complexity.pdf;/home/ermia/Zotero/storage/DM59PAI6/1405.html}
+}
+
+@misc{chefer2021d,
+  title = {Generic {{Attention-model Explainability}} for {{Interpreting Bi-Modal}} and {{Encoder-Decoder Transformers}}},
+  author = {Chefer, Hila and Gur, Shir and Wolf, Lior},
+  year = {2021},
+  month = mar,
+  number = {arXiv:2103.15679},
+  eprint = {2103.15679},
+  primaryclass = {cs},
+  publisher = {{arXiv}},
+  urldate = {2023-12-17},
+  abstract = {Transformers are increasingly dominating multi-modal reasoning tasks, such as visual question answering, achieving state-of-the-art results thanks to their ability to contextualize information using the self-attention and co-attention mechanisms. These attention modules also play a role in other computer vision tasks including object detection and image segmentation. Unlike Transformers that only use self-attention, Transformers with co-attention require to consider multiple attention maps in parallel in order to highlight the information that is relevant to the prediction in the model's input. In this work, we propose the first method to explain prediction by any Transformer-based architecture, including bi-modal Transformers and Transformers with co-attentions. We provide generic solutions and apply these to the three most commonly used of these architectures: (i) pure self-attention, (ii) self-attention combined with co-attention, and (iii) encoder-decoder attention. We show that our method is superior to all existing methods which are adapted from single modality explainability.},
+  archiveprefix = {arxiv},
+  keywords = {Computer Science - Computer Vision and Pattern Recognition,Computer Science - Machine Learning},
+  file = {/home/ermia/Zotero/storage/SFJ2E7Z2/Chefer et al. - 2021 - Generic Attention-model Explainability for Interpr.pdf;/home/ermia/Zotero/storage/UZGENV9B/2103.html}
+}
+
+@misc{chen2022a,
+  title = {Maximum {{Flow}} and {{Minimum-Cost Flow}} in {{Almost-Linear Time}}},
+  author = {Chen, Li and Kyng, Rasmus and Liu, Yang P. and Peng, Richard and Gutenberg, Maximilian Probst and Sachdeva, Sushant},
+  year = {2022},
+  month = apr,
+  number = {arXiv:2203.00671},
+  eprint = {2203.00671},
+  primaryclass = {cs},
+  publisher = {{arXiv}},
+  urldate = {2023-12-01},
+  abstract = {We give an algorithm that computes exact maximum flows and minimum-cost flows on directed graphs with \$m\$ edges and polynomially bounded integral demands, costs, and capacities in \$m\^\{1+o(1)\}\$ time. Our algorithm builds the flow through a sequence of \$m\^\{1+o(1)\}\$ approximate undirected minimum-ratio cycles, each of which is computed and processed in amortized \$m\^\{o(1)\}\$ time using a new dynamic graph data structure. Our framework extends to algorithms running in \$m\^\{1+o(1)\}\$ time for computing flows that minimize general edge-separable convex functions to high accuracy. This gives almost-linear time algorithms for several problems including entropy-regularized optimal transport, matrix scaling, \$p\$-norm flows, and \$p\$-norm isotonic regression on arbitrary directed acyclic graphs.},
+  archiveprefix = {arxiv},
+  keywords = {Computer Science - Data Structures and Algorithms},
+  file = {/home/ermia/Zotero/storage/MQQ9DQIQ/Chen et al. - 2022 - Maximum Flow and Minimum-Cost Flow in Almost-Linea.pdf;/home/ermia/Zotero/storage/3WPAYBK9/2203.html}
+}
+
+@misc{cohen2020,
+  title = {Solving {{Linear Programs}} in the {{Current Matrix Multiplication Time}}},
+  author = {Cohen, Michael B. and Lee, Yin Tat and Song, Zhao},
+  year = {2020},
+  month = oct,
+  number = {arXiv:1810.07896},
+  eprint = {1810.07896},
+  primaryclass = {cs},
+  publisher = {{arXiv}},
+  doi = {10.48550/arXiv.1810.07896},
+  urldate = {2023-12-09},
+  abstract = {This paper shows how to solve linear programs of the form \${\textbackslash}min\_\{Ax=b,x{\textbackslash}geq0\} c\^{\textbackslash}top x\$ with \$n\$ variables in time \$\$O\^*((n\^\{{\textbackslash}omega\}+n\^\{2.5-{\textbackslash}alpha/2\}+n\^\{2+1/6\}) {\textbackslash}log(n/{\textbackslash}delta))\$\$ where \${\textbackslash}omega\$ is the exponent of matrix multiplication, \${\textbackslash}alpha\$ is the dual exponent of matrix multiplication, and \${\textbackslash}delta\$ is the relative accuracy. For the current value of \${\textbackslash}omega{\textbackslash}sim2.37\$ and \${\textbackslash}alpha{\textbackslash}sim0.31\$, our algorithm takes \$O\^*(n\^\{{\textbackslash}omega\} {\textbackslash}log(n/{\textbackslash}delta))\$ time. When \${\textbackslash}omega = 2\$, our algorithm takes \$O\^*(n\^\{2+1/6\} {\textbackslash}log(n/{\textbackslash}delta))\$ time. Our algorithm utilizes several new concepts that we believe may be of independent interest: \${\textbackslash}bullet\$ We define a stochastic central path method. \${\textbackslash}bullet\$ We show how to maintain a projection matrix \${\textbackslash}sqrt\{W\}A\^\{{\textbackslash}top\}(AWA\^\{{\textbackslash}top\})\^\{-1\}A{\textbackslash}sqrt\{W\}\$ in sub-quadratic time under \${\textbackslash}ell\_\{2\}\$ multiplicative changes in the diagonal matrix \$W\$.},
+  archiveprefix = {arxiv},
+  keywords = {Computer Science - Data Structures and Algorithms},
+  file = {/home/ermia/Zotero/storage/3A6VGA9J/Cohen et al. - 2020 - Solving Linear Programs in the Current Matrix Mult.pdf;/home/ermia/Zotero/storage/3BPERXMS/1810.html}
+}
+
+@misc{ethayarajh2021b,
+  title = {Attention {{Flows}} Are {{Shapley Value Explanations}}},
+  author = {Ethayarajh, Kawin and Jurafsky, Dan},
+  year = {2021},
+  month = may,
+  number = {arXiv:2105.14652},
+  eprint = {2105.14652},
+  primaryclass = {cs},
+  publisher = {{arXiv}},
+  doi = {10.48550/arXiv.2105.14652},
+  urldate = {2023-12-19},
+  abstract = {Shapley Values, a solution to the credit assignment problem in cooperative game theory, are a popular type of explanation in machine learning, having been used to explain the importance of features, embeddings, and even neurons. In NLP, however, leave-one-out and attention-based explanations still predominate. Can we draw a connection between these different methods? We formally prove that -- save for the degenerate case -- attention weights and leave-one-out values cannot be Shapley Values. \${\textbackslash}textit\{Attention flow\}\$ is a post-processed variant of attention weights obtained by running the max-flow algorithm on the attention graph. Perhaps surprisingly, we prove that attention flows are indeed Shapley Values, at least at the layerwise level. Given the many desirable theoretical qualities of Shapley Values -- which has driven their adoption among the ML community -- we argue that NLP practitioners should, when possible, adopt attention flow explanations alongside more traditional ones.},
+  archiveprefix = {arxiv},
+  keywords = {Computer Science - Computation and Language},
+  file = {/home/ermia/Zotero/storage/5DXIPUFP/Ethayarajh and Jurafsky - 2021 - Attention Flows are Shapley Value Explanations.pdf;/home/ermia/Zotero/storage/Q8ZX9KYC/2105.html}
+}
+
+@article{ghaoui2012,
+  title = {Lecture 14: {{Optimality Conditions}} for {{Conic Problems}}},
+  author = {Ghaoui, Laurent El},
+  year = {2012},
+  langid = {english},
+  file = {/home/ermia/Zotero/storage/XX7JWBIF/Ghaoui - 2012 - Lecture 14 Optimality Conditions for Conic Proble.pdf}
+}
+
+@misc{jambulapati2023a,
+  title = {Sparsifying Generalized Linear Models},
+  author = {Jambulapati, Arun and Lee, James R. and Liu, Yang P. and Sidford, Aaron},
+  year = {2023},
+  month = nov,
+  number = {arXiv:2311.18145},
+  eprint = {2311.18145},
+  primaryclass = {cs, math},
+  publisher = {{arXiv}},
+  doi = {10.48550/arXiv.2311.18145},
+  urldate = {2023-12-09},
+  abstract = {We consider the sparsification of sums \$F : {\textbackslash}mathbb\{R\}\^n {\textbackslash}to {\textbackslash}mathbb\{R\}\$ where \$F(x) = f\_1({\textbackslash}langle a\_1,x{\textbackslash}rangle) + {\textbackslash}cdots + f\_m({\textbackslash}langle a\_m,x{\textbackslash}rangle)\$ for vectors \$a\_1,{\textbackslash}ldots,a\_m {\textbackslash}in {\textbackslash}mathbb\{R\}\^n\$ and functions \$f\_1,{\textbackslash}ldots,f\_m : {\textbackslash}mathbb\{R\} {\textbackslash}to {\textbackslash}mathbb\{R\}\_+\$. We show that \$(1+{\textbackslash}varepsilon)\$-approximate sparsifiers of \$F\$ with support size \${\textbackslash}frac\{n\}\{{\textbackslash}varepsilon\^2\} ({\textbackslash}log {\textbackslash}frac\{n\}\{{\textbackslash}varepsilon\})\^\{O(1)\}\$ exist whenever the functions \$f\_1,{\textbackslash}ldots,f\_m\$ are symmetric, monotone, and satisfy natural growth bounds. Additionally, we give efficient algorithms to compute such a sparsifier assuming each \$f\_i\$ can be evaluated efficiently. Our results generalize the classic case of \${\textbackslash}ell\_p\$ sparsification, where \$f\_i(z) = |z|\^p\$, for \$p {\textbackslash}in (0, 2]\$, and give the first near-linear size sparsifiers in the well-studied setting of the Huber loss function and its generalizations, e.g., \$f\_i(z) = {\textbackslash}min{\textbackslash}\{|z|\^p, |z|\^2{\textbackslash}\}\$ for \$0 {$<$} p {\textbackslash}leq 2\$. Our sparsification algorithm can be applied to give near-optimal reductions for optimizing a variety of generalized linear models including \${\textbackslash}ell\_p\$ regression for \$p {\textbackslash}in (1, 2]\$ to high accuracy, via solving \$({\textbackslash}log n)\^\{O(1)\}\$ sparse regression instances with \$m {\textbackslash}le n({\textbackslash}log n)\^\{O(1)\}\$, plus runtime proportional to the number of nonzero entries in the vectors \$a\_1, {\textbackslash}dots, a\_m\$.},
+  archiveprefix = {arxiv},
+  keywords = {Computer Science - Data Structures and Algorithms,Mathematics - Functional Analysis},
+  file = {/home/ermia/Zotero/storage/96HRRM3D/Jambulapati et al. - 2023 - Sparsifying generalized linear models.pdf;/home/ermia/Zotero/storage/QHSLKHV3/2311.html}
+}
+
+@article{kargera,
+  title = {Minimum Cost Maximum Flow, {{Minimum}} Cost Circulation, {{Cost}}/{{Capacity}} Scaling},
+  author = {Karger, David and Fleming, Kermin and Crutchfield, Chris},
+  langid = {english},
+  file = {/home/ermia/Zotero/storage/64Q7A2N4/Karger et al. - Minimum cost maximum ﬂow, Minimum cost circulation.pdf}
+}
+
+@article{kyngb,
+  title = {Advanced {{Graph Algorithms}} and {{Optimization}}},
+  author = {Kyng, Rasmus and Gutenberg, Maximilian Probst},
+  langid = {english},
+  file = {/home/ermia/Zotero/storage/9M8KYYP7/Kyng and Gutenberg - Advanced Graph Algorithms and Optimization.pdf}
+}
+
+@misc{lee2020,
+  title = {Solving {{Linear Programs}} with {{Sqrt}}(Rank) {{Linear System Solves}}},
+  author = {Lee, Yin Tat and Sidford, Aaron},
+  year = {2020},
+  month = aug,
+  number = {arXiv:1910.08033},
+  eprint = {1910.08033},
+  primaryclass = {cs, math},
+  publisher = {{arXiv}},
+  urldate = {2023-12-23},
+  abstract = {We present an algorithm that given a linear program with \$n\$ variables, \$m\$ constraints, and constraint matrix \$A\$, computes an \${\textbackslash}epsilon\$-approximate solution in \${\textbackslash}tilde\{O\}({\textbackslash}sqrt\{rank(A)\}{\textbackslash}log(1/{\textbackslash}epsilon))\$ iterations with high probability. Each iteration of our method consists of solving \${\textbackslash}tilde\{O\}(1)\$ linear systems and additional nearly linear time computation, improving by a factor of \${\textbackslash}tilde\{{\textbackslash}Omega\}((m/rank(A))\^\{1/2\})\$ over the previous fastest method with this iteration cost due to Renegar (1988). Further, we provide a deterministic polynomial time computable \${\textbackslash}tilde\{O\}(rank(A))\$-self-concordant barrier function for the polytope, resolving an open question of Nesterov and Nemirovski (1994) on the theory of "universal barriers" for interior point methods. Applying our techniques to the linear program formulation of maximum flow yields an \${\textbackslash}tilde\{O\}(|E|{\textbackslash}sqrt\{|V|\}{\textbackslash}log(U))\$ time algorithm for solving the maximum flow problem on directed graphs with \$|E|\$ edges, \$|V|\$ vertices, and integer capacities of size at most \$U\$. This improves upon the previous fastest polynomial running time of \$O(|E|{\textbackslash}min{\textbackslash}\{|E|\^\{1/2\},|V|\^\{2/3\}{\textbackslash}\}{\textbackslash}log(|V|\^\{2\}/|E|){\textbackslash}log(U))\$ achieved by Goldberg and Rao (1998). In the special case of solving dense directed unit capacity graphs our algorithm improves upon the previous fastest running times of \$O(|E|{\textbackslash}min{\textbackslash}\{|E|\^\{1/2\},|V|\^\{2/3\}{\textbackslash}\})\$ achieved by Even and Tarjan (1975) and Karzanov (1973) and of \${\textbackslash}tilde\{O\}(|E|\^\{10/7\})\$ achieved more recently by M{\textbackslash}k\{a\}dry (2013).},
+  archiveprefix = {arxiv},
+  keywords = {Computer Science - Data Structures and Algorithms,Mathematics - Optimization and Control},
+  file = {/home/ermia/Zotero/storage/N6573J5S/Lee and Sidford - 2020 - Solving Linear Programs with Sqrt(rank) Linear Sys.pdf;/home/ermia/Zotero/storage/5KPETDJU/1910.html}
+}
+
+@article{leea,
+  title = {Lecture 9: {{Case Study}} - {{Maximum Flow Problem}}},
+  author = {Lee, Yin Tat},
+  langid = {english},
+  file = {/home/ermia/Zotero/storage/67ARJIE9/Lee - Lecture 9 Case Study - Maximum Flow Problem.pdf}
+}
+
+@misc{lin2022,
+  title = {Fixed-{{Support Wasserstein Barycenters}}: {{Computational Hardness}} and {{Fast Algorithm}}},
+  shorttitle = {Fixed-{{Support Wasserstein Barycenters}}},
+  author = {Lin, Tianyi and Ho, Nhat and Chen, Xi and Cuturi, Marco and Jordan, Michael I.},
+  year = {2022},
+  month = jun,
+  number = {arXiv:2002.04783},
+  eprint = {2002.04783},
+  primaryclass = {cs, stat},
+  publisher = {{arXiv}},
+  urldate = {2023-12-17},
+  abstract = {We study the fixed-support Wasserstein barycenter problem (FS-WBP), which consists in computing the Wasserstein barycenter of \$m\$ discrete probability measures supported on a finite metric space of size \$n\$. We show first that the constraint matrix arising from the standard linear programming (LP) representation of the FS-WBP is {\textbackslash}textit\{not totally unimodular\} when \$m {\textbackslash}geq 3\$ and \$n {\textbackslash}geq 3\$. This result resolves an open question pertaining to the relationship between the FS-WBP and the minimum-cost flow (MCF) problem since it proves that the FS-WBP in the standard LP form is not an MCF problem when \$m {\textbackslash}geq 3\$ and \$n {\textbackslash}geq 3\$. We also develop a provably fast {\textbackslash}textit\{deterministic\} variant of the celebrated iterative Bregman projection (IBP) algorithm, named {\textbackslash}textsc\{FastIBP\}, with a complexity bound of \${\textbackslash}tilde\{O\}(mn\^\{7/3\}{\textbackslash}varepsilon\^\{-4/3\})\$, where \${\textbackslash}varepsilon {\textbackslash}in (0, 1)\$ is the desired tolerance. This complexity bound is better than the best known complexity bound of \${\textbackslash}tilde\{O\}(mn\^2{\textbackslash}varepsilon\^\{-2\})\$ for the IBP algorithm in terms of \${\textbackslash}varepsilon\$, and that of \${\textbackslash}tilde\{O\}(mn\^\{5/2\}{\textbackslash}varepsilon\^\{-1\})\$ from accelerated alternating minimization algorithm or accelerated primal-dual adaptive gradient algorithm in terms of \$n\$. Finally, we conduct extensive experiments with both synthetic data and real images and demonstrate the favorable performance of the {\textbackslash}textsc\{FastIBP\} algorithm in practice.},
+  archiveprefix = {arxiv},
+  keywords = {Computer Science - Computational Complexity,Computer Science - Data Structures and Algorithms,Statistics - Machine Learning},
+  file = {/home/ermia/Zotero/storage/MA27VMVA/Lin et al. - 2022 - Fixed-Support Wasserstein Barycenters Computation.pdf;/home/ermia/Zotero/storage/PBEIRQR7/2002.html}
+}
+
+@misc{lundberg2017b,
+  title = {A {{Unified Approach}} to {{Interpreting Model Predictions}}},
+  author = {Lundberg, Scott and Lee, Su-In},
+  year = {2017},
+  month = nov,
+  number = {arXiv:1705.07874},
+  eprint = {1705.07874},
+  primaryclass = {cs, stat},
+  publisher = {{arXiv}},
+  doi = {10.48550/arXiv.1705.07874},
+  urldate = {2023-12-15},
+  abstract = {Understanding why a model makes a certain prediction can be as crucial as the prediction's accuracy in many applications. However, the highest accuracy for large modern datasets is often achieved by complex models that even experts struggle to interpret, such as ensemble or deep learning models, creating a tension between accuracy and interpretability. In response, various methods have recently been proposed to help users interpret the predictions of complex models, but it is often unclear how these methods are related and when one method is preferable over another. To address this problem, we present a unified framework for interpreting predictions, SHAP (SHapley Additive exPlanations). SHAP assigns each feature an importance value for a particular prediction. Its novel components include: (1) the identification of a new class of additive feature importance measures, and (2) theoretical results showing there is a unique solution in this class with a set of desirable properties. The new class unifies six existing methods, notable because several recent methods in the class lack the proposed desirable properties. Based on insights from this unification, we present new methods that show improved computational performance and/or better consistency with human intuition than previous approaches.},
+  archiveprefix = {arxiv},
+  keywords = {Computer Science - Artificial Intelligence,Computer Science - Machine Learning,Statistics - Machine Learning},
+  file = {/home/ermia/Zotero/storage/UI6V2P6N/Lundberg and Lee - 2017 - A Unified Approach to Interpreting Model Predictio.pdf;/home/ermia/Zotero/storage/ZH9766VC/1705.html}
+}
+
+@inproceedings{madry2019,
+  title = {{{GRADIENTS AND FLOWS}}: {{CONTINUOUS OPTIMIZATION APPROACHES TO THE MAXIMUM FLOW PROBLEM}}},
+  shorttitle = {{{GRADIENTS AND FLOWS}}},
+  booktitle = {Proceedings of the {{International Congress}} of {{Mathematicians}} ({{ICM}} 2018)},
+  author = {M{\k{a}}dry, Aleksander},
+  year = {2019},
+  month = may,
+  pages = {3361--3387},
+  publisher = {{WORLD SCIENTIFIC}},
+  address = {{Rio de Janeiro, Brazil}},
+  doi = {10.1142/9789813272880_0185},
+  urldate = {2023-11-14},
+  abstract = {We use the lens of the maximum flow problem, one of the most fundamental problems in algorithmic graph theory, to describe a new framework for design of graph algorithms. At a high level, this framework casts the graph problem at hand as a convex optimization task and then applies to it an appropriate method from the continuous optimization toolkit. We survey how this new approach led to the first in decades progress on the maximum flow problem and then briefly sketch the challenges that still remain.},
+  isbn = {978-981-327-287-3 978-981-327-288-0},
+  langid = {english},
+  file = {/home/ermia/Zotero/storage/JWW6ZWVZ/Mądry - 2019 - GRADIENTS AND FLOWS CONTINUOUS OPTIMIZATION APPRO.pdf}
+}
+
+@article{racke2022,
+  title = {The Following Slides Are Partially Based on Slides by {{Kevin Wayne}}.},
+  author = {R{\"a}cke, Harald},
+  year = {2022},
+  langid = {english},
+  file = {/home/ermia/Zotero/storage/ESGXM2B6/Räcke - 2022 - The following slides are partially based on slides.pdf}
+}
+
+@article{tibshirania,
+  title = {Lecture 14: {{Newton}}'s {{Method}} ({{October}} 14)},
+  author = {Tibshirani, Ryan and Li, Dennis and Pareek, Divyansh and Noroozizadeh, Shahriar},
+  langid = {english},
+  file = {/home/ermia/Zotero/storage/ATFYDDBF/Tibshirani et al. - Lecture 14 Newton’s Method (October 14).pdf}
+}
+
+@inproceedings{vandenbrand2021a,
+  title = {Minimum Cost Flows, {{MDPs}}, and {$\mathscr{l}$} {\textsubscript{1}} -Regression in Nearly Linear Time for Dense Instances},
+  booktitle = {Proceedings of the 53rd {{Annual ACM SIGACT Symposium}} on {{Theory}} of {{Computing}}},
+  author = {Van Den Brand, Jan and Lee, Yin Tat and Liu, Yang P. and Saranurak, Thatchaphol and Sidford, Aaron and Song, Zhao and Wang, Di},
+  year = {2021},
+  month = jun,
+  pages = {859--869},
+  publisher = {{ACM}},
+  address = {{Virtual Italy}},
+  doi = {10.1145/3406325.3451108},
+  urldate = {2023-12-19},
+  isbn = {978-1-4503-8053-9},
+  langid = {english},
+  file = {/home/ermia/Zotero/storage/ZLTIJCHR/Van Den Brand et al. - 2021 - Minimum cost flows, MDPs, and ℓ 1 -regr.pdf}
+}
+
+@inproceedings{vandenbrand2023,
+  title = {Dynamic {{Maxflow}} via {{Dynamic Interior Point Methods}}},
+  booktitle = {Proceedings of the 55th {{Annual ACM Symposium}} on {{Theory}} of {{Computing}}},
+  author = {{van den Brand}, Jan and Liu, Yang P. and Sidford, Aaron},
+  year = {2023},
+  month = jun,
+  series = {{{STOC}} 2023},
+  pages = {1215--1228},
+  publisher = {{Association for Computing Machinery}},
+  address = {{New York, NY, USA}},
+  doi = {10.1145/3564246.3585135},
+  urldate = {2023-12-09},
+  abstract = {In this paper we provide an algorithm for maintaining a (1-{\cyrchar\cyrie})-approximate maximum flow in a dynamic, capacitated graph undergoing edge insertions. Over a sequence of m insertions to an n-node graph where every edge has capacity O(poly(m)) our algorithm runs in time O(m {$\surd$}n {$\cdot$} {\cyrchar\cyrie}-1). To obtain this result we design dynamic data structures for the more general problem of detecting when the value of the minimum cost circulation in a dynamic graph undergoing edge insertions achieves value at most F (exactly) for a given threshold F. Over a sequence m insertions to an n-node graph where every edge has capacity O(poly(m)) and cost O(poly(m)) we solve this thresholded minimum cost flow problem in O(m {$\surd$}n). Both of our algorithms succeed with high probability against an adaptive adversary. We obtain these results by dynamizing the recent interior point method by [Chen et al. ‍FOCS 2022] used to obtain an almost linear time algorithm for minimum cost flow, and introducing a new dynamic data structure for maintaining minimum ratio cycles in an undirected graph that succeeds with high probability against adaptive adversaries.},
+  isbn = {978-1-4503-9913-5},
+  keywords = {bipartite matching,dynamic algorithm,graph algorithm,maximum flow,minimum cost flow},
+  file = {/home/ermia/Zotero/storage/S7PPS4VX/van den Brand et al. - 2023 - Dynamic Maxflow via Dynamic Interior Point Methods.pdf}
+}
+
+@article{vargas,
+  title = {1 {{Last Time}} ({{Gradient Descent}})},
+  author = {Vargas, David and Markovits, Alex and Baykal, Cenk},
+  langid = {english},
+  file = {/home/ermia/Zotero/storage/CQT2TJJE/Vargas et al. - 1 Last Time (Gradient Descent).pdf}
+}
+
+@article{vert,
+  title = {Nonlinear {{Optimization}}: {{Algorithms}} 3: {{Interior-point}} Methods},
+  author = {Vert, Jean-Philippe},
+  langid = {english},
+  file = {/home/ermia/Zotero/storage/Q55B4AJN/Vert - Nonlinear Optimization Algorithms 3 Interior-poi.pdf}
+}
+
+@misc{zotero-3269,
+  title = {Solving Linear Programs in the Current Matrix Multiplication Time | {{Proceedings}} of the 51st {{Annual ACM SIGACT Symposium}} on {{Theory}} of {{Computing}}},
+  urldate = {2023-12-09},
+  howpublished = {https://dl.acm.org/doi/10.1145/3313276.3316303}
+}
