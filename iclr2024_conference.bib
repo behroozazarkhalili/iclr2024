@@ -79,6 +79,7 @@
   abstract = {We make several advances broadly related to the maintenance of electrical flows in weighted graphs undergoing dynamic resistance updates, including: 1. More efficient dynamic spectral vertex sparsification, achieved by faster length estimation of random walks in weighted graphs using Morris counters [Morris 1978, Nelson-Yu 2020]. 2. A direct reduction from detecting edges with large energy in dynamic electric flows to dynamic spectral vertex sparsifiers. 3. A procedure for turning algorithms for estimating a sequence of vectors under updates from an oblivious adversary to one that tolerates adaptive adversaries via the Gaussian-mechanism from differential privacy. Combining these pieces with modifications to prior robust interior point frameworks gives an algorithm that on graphs with \$m\$ edges computes a mincost flow with edge costs and capacities in \$[1, U]\$ in time \${\textbackslash}widetilde\{O\}(m\^\{3/2-1/58\} {\textbackslash}log\^2 U)\$. In prior and independent work, [Axiotis-M{\textbackslash}k\{a\}dry-Vladu FOCS 2021] also obtained an improved algorithm for sparse mincost flows on capacitated graphs. Our algorithm implies a \${\textbackslash}widetilde\{O\}(m\^\{3/2-1/58\} {\textbackslash}log U)\$ time maxflow algorithm, improving over the \${\textbackslash}widetilde\{O\}(m\^\{3/2-1/328\}{\textbackslash}log U)\$ time maxflow algorithm of [Gao-Liu-Peng FOCS 2021].},
   archiveprefix = {arxiv},
   keywords = {Computer Science - Data Structures and Algorithms,Mathematics - Optimization and Control},
+  note = {Comment: 63 pages},
   file = {/home/ermia/Zotero/storage/NVE97YD6/Brand et al. - 2021 - Faster Maxflow via Improved Dynamic Spectral Verte.pdf;/home/ermia/Zotero/storage/CHV3XSG7/2112.html}
 }
 
@@ -111,6 +112,7 @@
   abstract = {In this paper we provide an algorithm for maintaining a \$(1-{\textbackslash}epsilon)\$-approximate maximum flow in a dynamic, capacitated graph undergoing edge additions. Over a sequence of \$m\$-additions to an \$n\$-node graph where every edge has capacity \$O({\textbackslash}mathrm\{poly\}(m))\$ our algorithm runs in time \${\textbackslash}widehat\{O\}(m {\textbackslash}sqrt\{n\} {\textbackslash}cdot {\textbackslash}epsilon\^\{-1\})\$. To obtain this result we design dynamic data structures for the more general problem of detecting when the value of the minimum cost circulation in a dynamic graph undergoing edge additions obtains value at most \$F\$ (exactly) for a given threshold \$F\$. Over a sequence \$m\$-additions to an \$n\$-node graph where every edge has capacity \$O({\textbackslash}mathrm\{poly\}(m))\$ and cost \$O({\textbackslash}mathrm\{poly\}(m))\$ we solve this thresholded minimum cost flow problem in \${\textbackslash}widehat\{O\}(m {\textbackslash}sqrt\{n\})\$. Both of our algorithms succeed with high probability against an adaptive adversary. We obtain these results by dynamizing the recent interior point method used to obtain an almost linear time algorithm for minimum cost flow (Chen, Kyng, Liu, Peng, Probst Gutenberg, Sachdeva 2022), and introducing a new dynamic data structure for maintaining minimum ratio cycles in an undirected graph that succeeds with high probability against adaptive adversaries.},
   archiveprefix = {arxiv},
   keywords = {Computer Science - Data Structures and Algorithms,Mathematics - Optimization and Control},
+  note = {Comment: 30 pages},
   file = {/home/ermia/Zotero/storage/8H37DSHV/Brand et al. - 2022 - Dynamic Maxflow via Dynamic Interior Point Methods.pdf;/home/ermia/Zotero/storage/C9KRRHXA/2212.html}
 }
 
@@ -128,6 +130,7 @@
   abstract = {This monograph presents the main complexity theorems in convex optimization and their corresponding algorithms. Starting from the fundamental theory of black-box optimization, the material progresses towards recent advances in structural optimization and stochastic optimization. Our presentation of black-box optimization, strongly influenced by Nesterov's seminal book and Nemirovski's lecture notes, includes the analysis of cutting plane methods, as well as (accelerated) gradient descent schemes. We also pay special attention to non-Euclidean settings (relevant algorithms include Frank-Wolfe, mirror descent, and dual averaging) and discuss their relevance in machine learning. We provide a gentle introduction to structural optimization with FISTA (to optimize a sum of a smooth and a simple non-smooth term), saddle-point mirror prox (Nemirovski's alternative to Nesterov's smoothing), and a concise description of interior point methods. In stochastic optimization we discuss stochastic gradient descent, mini-batches, random coordinate descent, and sublinear algorithms. We also briefly touch upon convex relaxation of combinatorial problems and the use of randomness to round solutions, as well as random walks based methods.},
   archiveprefix = {arxiv},
   keywords = {Computer Science - Computational Complexity,Computer Science - Machine Learning,Mathematics - Numerical Analysis,Mathematics - Optimization and Control,Statistics - Machine Learning},
+  note = {Comment: A previous version of the manuscript was titled "Theory of Convex Optimization for Machine Learning"},
   file = {/home/ermia/Zotero/storage/PSL5F8RF/Bubeck - 2015 - Convex Optimization Algorithms and Complexity.pdf;/home/ermia/Zotero/storage/DM59PAI6/1405.html}
 }
 
@@ -177,6 +180,7 @@
   abstract = {This paper shows how to solve linear programs of the form \${\textbackslash}min\_\{Ax=b,x{\textbackslash}geq0\} c\^{\textbackslash}top x\$ with \$n\$ variables in time \$\$O\^*((n\^\{{\textbackslash}omega\}+n\^\{2.5-{\textbackslash}alpha/2\}+n\^\{2+1/6\}) {\textbackslash}log(n/{\textbackslash}delta))\$\$ where \${\textbackslash}omega\$ is the exponent of matrix multiplication, \${\textbackslash}alpha\$ is the dual exponent of matrix multiplication, and \${\textbackslash}delta\$ is the relative accuracy. For the current value of \${\textbackslash}omega{\textbackslash}sim2.37\$ and \${\textbackslash}alpha{\textbackslash}sim0.31\$, our algorithm takes \$O\^*(n\^\{{\textbackslash}omega\} {\textbackslash}log(n/{\textbackslash}delta))\$ time. When \${\textbackslash}omega = 2\$, our algorithm takes \$O\^*(n\^\{2+1/6\} {\textbackslash}log(n/{\textbackslash}delta))\$ time. Our algorithm utilizes several new concepts that we believe may be of independent interest: \${\textbackslash}bullet\$ We define a stochastic central path method. \${\textbackslash}bullet\$ We show how to maintain a projection matrix \${\textbackslash}sqrt\{W\}A\^\{{\textbackslash}top\}(AWA\^\{{\textbackslash}top\})\^\{-1\}A{\textbackslash}sqrt\{W\}\$ in sub-quadratic time under \${\textbackslash}ell\_\{2\}\$ multiplicative changes in the diagonal matrix \$W\$.},
   archiveprefix = {arxiv},
   keywords = {Computer Science - Data Structures and Algorithms},
+  note = {Comment: STOC 2019, JACM 2020},
   file = {/home/ermia/Zotero/storage/3A6VGA9J/Cohen et al. - 2020 - Solving Linear Programs in the Current Matrix Mult.pdf;/home/ermia/Zotero/storage/3BPERXMS/1810.html}
 }
 
@@ -194,6 +198,7 @@
   abstract = {Shapley Values, a solution to the credit assignment problem in cooperative game theory, are a popular type of explanation in machine learning, having been used to explain the importance of features, embeddings, and even neurons. In NLP, however, leave-one-out and attention-based explanations still predominate. Can we draw a connection between these different methods? We formally prove that -- save for the degenerate case -- attention weights and leave-one-out values cannot be Shapley Values. \${\textbackslash}textit\{Attention flow\}\$ is a post-processed variant of attention weights obtained by running the max-flow algorithm on the attention graph. Perhaps surprisingly, we prove that attention flows are indeed Shapley Values, at least at the layerwise level. Given the many desirable theoretical qualities of Shapley Values -- which has driven their adoption among the ML community -- we argue that NLP practitioners should, when possible, adopt attention flow explanations alongside more traditional ones.},
   archiveprefix = {arxiv},
   keywords = {Computer Science - Computation and Language},
+  note = {Comment: ACL 2021},
   file = {/home/ermia/Zotero/storage/5DXIPUFP/Ethayarajh and Jurafsky - 2021 - Attention Flows are Shapley Value Explanations.pdf;/home/ermia/Zotero/storage/Q8ZX9KYC/2105.html}
 }
 
@@ -249,6 +254,7 @@
   abstract = {We present an algorithm that given a linear program with \$n\$ variables, \$m\$ constraints, and constraint matrix \$A\$, computes an \${\textbackslash}epsilon\$-approximate solution in \${\textbackslash}tilde\{O\}({\textbackslash}sqrt\{rank(A)\}{\textbackslash}log(1/{\textbackslash}epsilon))\$ iterations with high probability. Each iteration of our method consists of solving \${\textbackslash}tilde\{O\}(1)\$ linear systems and additional nearly linear time computation, improving by a factor of \${\textbackslash}tilde\{{\textbackslash}Omega\}((m/rank(A))\^\{1/2\})\$ over the previous fastest method with this iteration cost due to Renegar (1988). Further, we provide a deterministic polynomial time computable \${\textbackslash}tilde\{O\}(rank(A))\$-self-concordant barrier function for the polytope, resolving an open question of Nesterov and Nemirovski (1994) on the theory of "universal barriers" for interior point methods. Applying our techniques to the linear program formulation of maximum flow yields an \${\textbackslash}tilde\{O\}(|E|{\textbackslash}sqrt\{|V|\}{\textbackslash}log(U))\$ time algorithm for solving the maximum flow problem on directed graphs with \$|E|\$ edges, \$|V|\$ vertices, and integer capacities of size at most \$U\$. This improves upon the previous fastest polynomial running time of \$O(|E|{\textbackslash}min{\textbackslash}\{|E|\^\{1/2\},|V|\^\{2/3\}{\textbackslash}\}{\textbackslash}log(|V|\^\{2\}/|E|){\textbackslash}log(U))\$ achieved by Goldberg and Rao (1998). In the special case of solving dense directed unit capacity graphs our algorithm improves upon the previous fastest running times of \$O(|E|{\textbackslash}min{\textbackslash}\{|E|\^\{1/2\},|V|\^\{2/3\}{\textbackslash}\})\$ achieved by Even and Tarjan (1975) and Karzanov (1973) and of \${\textbackslash}tilde\{O\}(|E|\^\{10/7\})\$ achieved more recently by M{\textbackslash}k\{a\}dry (2013).},
   archiveprefix = {arxiv},
   keywords = {Computer Science - Data Structures and Algorithms,Mathematics - Optimization and Control},
+  note = {Comment: The merged version of abs/1312.6677 and abs/1312.6713. It contains several new results beyond these prior submissions, including a nearly optimal self-concordant barrier and its relation to Lewis weight},
   file = {/home/ermia/Zotero/storage/N6573J5S/Lee and Sidford - 2020 - Solving Linear Programs with Sqrt(rank) Linear Sys.pdf;/home/ermia/Zotero/storage/5KPETDJU/1910.html}
 }
 
@@ -273,6 +279,7 @@
   abstract = {We study the fixed-support Wasserstein barycenter problem (FS-WBP), which consists in computing the Wasserstein barycenter of \$m\$ discrete probability measures supported on a finite metric space of size \$n\$. We show first that the constraint matrix arising from the standard linear programming (LP) representation of the FS-WBP is {\textbackslash}textit\{not totally unimodular\} when \$m {\textbackslash}geq 3\$ and \$n {\textbackslash}geq 3\$. This result resolves an open question pertaining to the relationship between the FS-WBP and the minimum-cost flow (MCF) problem since it proves that the FS-WBP in the standard LP form is not an MCF problem when \$m {\textbackslash}geq 3\$ and \$n {\textbackslash}geq 3\$. We also develop a provably fast {\textbackslash}textit\{deterministic\} variant of the celebrated iterative Bregman projection (IBP) algorithm, named {\textbackslash}textsc\{FastIBP\}, with a complexity bound of \${\textbackslash}tilde\{O\}(mn\^\{7/3\}{\textbackslash}varepsilon\^\{-4/3\})\$, where \${\textbackslash}varepsilon {\textbackslash}in (0, 1)\$ is the desired tolerance. This complexity bound is better than the best known complexity bound of \${\textbackslash}tilde\{O\}(mn\^2{\textbackslash}varepsilon\^\{-2\})\$ for the IBP algorithm in terms of \${\textbackslash}varepsilon\$, and that of \${\textbackslash}tilde\{O\}(mn\^\{5/2\}{\textbackslash}varepsilon\^\{-1\})\$ from accelerated alternating minimization algorithm or accelerated primal-dual adaptive gradient algorithm in terms of \$n\$. Finally, we conduct extensive experiments with both synthetic data and real images and demonstrate the favorable performance of the {\textbackslash}textsc\{FastIBP\} algorithm in practice.},
   archiveprefix = {arxiv},
   keywords = {Computer Science - Computational Complexity,Computer Science - Data Structures and Algorithms,Statistics - Machine Learning},
+  note = {Comment: Accepted by NeurIPS 2020; fix some confusing parts in the proof and improve the empirical evaluation},
   file = {/home/ermia/Zotero/storage/MA27VMVA/Lin et al. - 2022 - Fixed-Support Wasserstein Barycenters Computation.pdf;/home/ermia/Zotero/storage/PBEIRQR7/2002.html}
 }
 
@@ -290,6 +297,7 @@
   abstract = {Understanding why a model makes a certain prediction can be as crucial as the prediction's accuracy in many applications. However, the highest accuracy for large modern datasets is often achieved by complex models that even experts struggle to interpret, such as ensemble or deep learning models, creating a tension between accuracy and interpretability. In response, various methods have recently been proposed to help users interpret the predictions of complex models, but it is often unclear how these methods are related and when one method is preferable over another. To address this problem, we present a unified framework for interpreting predictions, SHAP (SHapley Additive exPlanations). SHAP assigns each feature an importance value for a particular prediction. Its novel components include: (1) the identification of a new class of additive feature importance measures, and (2) theoretical results showing there is a unique solution in this class with a set of desirable properties. The new class unifies six existing methods, notable because several recent methods in the class lack the proposed desirable properties. Based on insights from this unification, we present new methods that show improved computational performance and/or better consistency with human intuition than previous approaches.},
   archiveprefix = {arxiv},
   keywords = {Computer Science - Artificial Intelligence,Computer Science - Machine Learning,Statistics - Machine Learning},
+  note = {Comment: To appear in NIPS 2017},
   file = {/home/ermia/Zotero/storage/UI6V2P6N/Lundberg and Lee - 2017 - A Unified Approach to Interpreting Model Predictio.pdf;/home/ermia/Zotero/storage/ZH9766VC/1705.html}
 }
 
@@ -317,6 +325,19 @@
   year = {2022},
   langid = {english},
   file = {/home/ermia/Zotero/storage/ESGXM2B6/Räcke - 2022 - The following slides are partially based on slides.pdf}
+}
+
+@techreport{shapley1952,
+  title = {A {{Value}} for {{N-Person Games}}},
+  author = {Shapley, Lloyd S.},
+  year = {1952},
+  month = mar,
+  institution = {{RAND Corporation}},
+  urldate = {2023-12-24},
+  abstract = {An examination of a number of elementary properties of a value for the essential case. This value is deduced from a set of three axioms, having simple intuitive interpretations.},
+  langid = {english},
+  keywords = {Game Theory,Mathematics},
+  file = {/home/ermia/Zotero/storage/BTC92PTG/Shapley - 1952 - A Value for N-Person Games.pdf}
 }
 
 @article{tibshirania,
@@ -367,11 +388,31 @@
   file = {/home/ermia/Zotero/storage/CQT2TJJE/Vargas et al. - 1 Last Time (Gradient Descent).pdf}
 }
 
+@inproceedings{vaswani2017,
+  title = {Attention Is {{All}} You {{Need}}},
+  booktitle = {Advances in {{Neural Information Processing Systems}}},
+  author = {Vaswani, Ashish and Shazeer, Noam and Parmar, Niki and Uszkoreit, Jakob and Jones, Llion and Gomez, Aidan N and Kaiser, {\L}ukasz and Polosukhin, Illia},
+  year = {2017},
+  volume = {30},
+  publisher = {{Curran Associates, Inc.}},
+  urldate = {2023-12-23},
+  abstract = {The dominant sequence transduction models are based on complex recurrent orconvolutional neural networks in an encoder and decoder configuration. The best performing such models also connect the encoder and decoder through an attentionm echanisms.  We propose a novel, simple network architecture based solely onan attention mechanism, dispensing with recurrence and convolutions entirely.Experiments on two machine translation tasks show these models to be superiorin quality while being more parallelizable and requiring significantly less timeto train. Our single model with 165 million parameters, achieves 27.5 BLEU onEnglish-to-German translation, improving over the existing best ensemble result by over 1 BLEU. On English-to-French translation, we outperform the previoussingle state-of-the-art with model by 0.7 BLEU, achieving a BLEU score of 41.1.},
+  file = {/home/ermia/Zotero/storage/VZ79EW35/Vaswani et al. - 2017 - Attention is All you Need.pdf}
+}
+
 @article{vert,
   title = {Nonlinear {{Optimization}}: {{Algorithms}} 3: {{Interior-point}} Methods},
   author = {Vert, Jean-Philippe},
   langid = {english},
   file = {/home/ermia/Zotero/storage/Q55B4AJN/Vert - Nonlinear Optimization Algorithms 3 Interior-poi.pdf}
+}
+
+@article{yena,
+  title = {Sparse {{Linear Programming}} via {{Primal}} and {{Dual Augmented Coordinate Descent}}},
+  author = {Yen, Ian E H and Zhong, Kai and Hsieh, Cho-Jui and Ravikumar, Pradeep and Dhillon, Inderjit S},
+  abstract = {Over the past decades, Linear Programming (LP) has been widely used in different areas and considered as one of the mature technologies in numerical optimization. However, the complexity offered by state-of-the-art algorithms (i.e. interior-point method and primal, dual simplex methods) is still unsatisfactory for problems in machine learning with huge number of variables and constraints. In this paper, we investigate a general LP algorithm based on the combination of Augmented Lagrangian and Coordinate Descent (AL-CD), giving an iteration complexity of O((log(1/ ))2) with O(nnz(A)) cost per iteration, where nnz(A) is the number of non-zeros in the m {\texttimes} n constraint matrix A, and in practice, one can further reduce cost per iteration to the order of non-zeros in columns (rows) corresponding to the active primal (dual) variables through an active-set strategy. The algorithm thus yields a tractable alternative to standard LP methods for large-scale problems of sparse solutions and nnz(A) mn. We conduct experiments on large-scale LP instances from 1-regularized multi-class SVM, Sparse Inverse Covariance Estimation, and Nonnegative Matrix Factorization, where the proposed approach finds solutions of 10-3 precision orders of magnitude faster than state-of-the-art implementations of interior-point and simplex methods.},
+  langid = {english},
+  file = {/home/ermia/Zotero/storage/LDCISI7K/Yen et al. - Sparse Linear Programming via Primal and Dual Augm.pdf}
 }
 
 @misc{zotero-3269,

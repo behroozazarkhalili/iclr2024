@@ -69,7 +69,7 @@
 
 \definecolor{rasbery}{HTML}{b00149}
 \definecolor{redpink}{HTML}{fe2c54}
-\definecolor{neonblue}{HTML}{02ccfe}
+\definecolor{neonblue}{HTML}{c6fcff}
 \definecolor{oceanblue}{HTML}{03719c}
 \definecolor{brickred}{HTML}{8f1402}
 \definecolor{skyblue}{HTML}{75bbfd}
@@ -86,7 +86,7 @@
 \newcommand{\adddetail}[2]{\todo[inline, inlinewidth=5cm, author=#2, color=lightpurple]{#1}}
 \newcommand{\addfigure}[2]{\missingfigure[inline, inlinewidth=5cm, figwidth=#1, figcolor=yelloworange]{#2}}
 \newcommand{\moveit}[2]{\todo[inline, inlinewidth=5cm, author=#2, color=neonyellow]{#1}}
-
+\newcommand{\dcheck}[2]{\todo[inline, inlinewidth=5cm, author=#2, color=neonblue]{#1}}
 % # CODE SNIPPETS
 
 \definecolor{strings}{rgb}{.624,.251,.259}
@@ -191,6 +191,9 @@ The attention mechanism, initially designed for natural language processing, has
 \textbf{Contribution}:\\ 
 Our approach addresses the challenges faced by existing methods, offering a more nuanced understanding of feature importance. Through empirical evaluations on diverse datasets, we demonstrate the effectiveness and versatility of our proposed method in enhancing interpretability across various machine learning models.
 
+\dcheck{Quaily of Writing}{Max}
+\adddetail{Our Contributions?}{Behrooz+Max}
+
 %The assertion that both Shapley and attention values are deemed 'interpretable' raises a compelling question in the domain of XAI. It prompts a nuanced exploration of these two interpretability frameworks' similarities and potential equivalence.
 
 
@@ -265,18 +268,26 @@ We will define preliminary terms and definitions here that will be used in the s
 \subsection{Graph Network Flow}
 
 \subsubsection{Maximum Flow}
+\begin{definition}[Maximum Flow]
+	Given a network $G=(V, E, \bm{u})$, where $u_{i j}$ is the capacity for the edge $(i,j)\in E$, a flow is characterized as a function \( f: E \rightarrow \mathbb{R}^{\geq 0} \) s.t.
+	
+	\begin{equation}
+		\arraycolsep=3pt
+		\def\arraystretch{1.5}
+		\begin{array}{ll}
+			f_{i j} \leq u_{i j} \quad \forall(i, j) \in E \hspace{8pt} \text{(capacity constraints)} \\
+			\vspace{4pt}
+			\mathlarger{\mathlarger{\sum\limits_{j:(i, j) \in E}}} f_{i j} - \hspace{-3pt} \mathlarger{\mathlarger{\sum\limits_{j:(j, i) \in E}}} f_{j i} = 0, \quad \forall i \in V, i \neq s, t \hspace{8pt} \text{(flow conservation constraints)}
+		\end{array}
+		\label{eq:1}
+	\end{equation}
+	
+	The value of a flow in a given network \( G = (V, E, s, t, \bm{u}) \) is established as the sum of flows into the source vertex \( s \), denoted as \( \operatorname{val}(f) = \sum_{v:(v, s)} f_{vs} \), and a maximum flow is identified as a feasible flow with the highest attainable value.
+\end{definition}
 
-Given a network $G=(V, E, \textbf{u})$, where $u(i, j)$ is the capacity for the edge $(i,j)\in E$, a flow is characterized as a function \( f: E \rightarrow \mathbb{R}^{\geq 0} \) s.t. % subject to two key constraints: Firstly, the flow must adhere to capacity constraints, ensuring that \( f_{ij} \) does not exceed \( u_{ij} \) for all \( (i, j) \) in \( E \). Secondly, flow conservation constraints dictate that the sum of flows into a node equals the sum of flows out of that node for all nodes \( i \) in \( V \), excluding the source \( s \) and sink \( t \).
-\begin{equation}
-	\arraycolsep=3pt
-	\def\arraystretch{1.5}
-	\begin{array}{ll}
-		f_{i j} \leq u_{i j} \quad \forall(i, j) \in E \hspace{8pt} \text{(capacity constraints)} \\
-		\vspace{4pt}
-		\mathlarger{\mathlarger{\sum\limits_{j:(i, j) \in E}}} f_{i j} - \hspace{-3pt} \mathlarger{\mathlarger{\sum\limits_{j:(j, i) \in E}}} f_{j i} = 0, \quad \forall i \in V, i \neq s, t \hspace{8pt} \text{(flow conservation constraints)}
-	\end{array}
-	\label{eq:1}
-\end{equation}
+
+% subject to two key constraints: Firstly, the flow must adhere to capacity constraints, ensuring that \( f_{ij} \) does not exceed \( u_{ij} \) for all \( (i, j) \) in \( E \). Secondly, flow conservation constraints dictate that the sum of flows into a node equals the sum of flows out of that node for all nodes \( i \) in \( V \), excluding the source \( s \) and sink \( t \).
+
 
 %\begin{itemize}
 %	\item $f_{i j} \leq u_{i j} \quad \forall(i, j) \in E$ \quad (capacity constraints)
@@ -285,74 +296,59 @@ Given a network $G=(V, E, \textbf{u})$, where $u(i, j)$ is the capacity for the 
 
 %To simplify notation, expressions $f^{i n}(i) \equiv \sum_{j:(j, i) \in E} f_{j i}$ and $f^{\text {out }}(i) \equiv \sum_{k:(i, k) \in E} f_{i k}$ are introduced, representing the sum of incoming and outgoing flows for a given node \( i \), respectively. This facilitates an alternative formulation of the flow conservation constraints as \( f^{in}(i) = f^{out}(i) \) for non-source and non-sink nodes.
 
-The value of a flow in a given network \( G = (V, E, s, t, \textbf{u}) \) is established as the sum of flows into the source vertex \( s \), denoted as \( \operatorname{val}(f) = \sum_{v:(v, s)} f_{vs} \), and a maximum flow is identified as a feasible flow with the highest attainable value.
  \adddetail{Check definition of val(f)}{Behrooz}
 
 
-\subsubsection{Multi-Commodity Maximum Flow}
-The multi-commodity flow problem is an important variant of the maximum flow problem. This problem involves multiple source-sink pairs, unlike the standard maximum flow problem which only considers one source and one sink. The goal is to find multiple feasible flows, denoted by $f^1(\cdot, \cdot), \ldots, f^r(\cdot, \cdot)$, where each $f^k(\cdot, \cdot)$ represents a feasible flow from the source $s_k$ to the sink $t_k$. The objective is to ensure that all capacity constraints are satisfied, which are represented by the equation:
-
-\begin{equation}
-	\sum_{k=1}^r f^k(i, j) \leq u(i, j) \quad \forall(i, j) \in E
-	\label{eq:2}
-\end{equation}
-
-Such a flow is known as a "multi-commodity" flow. A multi-commodity maximum flow problem is to maximize the function $\sum_{k=1}^r \sum_{v:(v, s_k)} f^k_{s_k v}$.
-	
-
-To solve the problem of multi-commodity maximum flow, we can simplify it by transforming it into a standard maximum flow problem. This can be achieved by introducing two new nodes - a "super-source" node $s$ and a "super-sink" node $t$. The "super-source" node $s$ should be connected to all the original sources $s_i$ through edges of finite capacities, while the "super-sink" node $t$ should be connected to all the original sinks $t_i$ with edges of finite capacities:
-
-\begin{itemize}
-	\item Each outgoing edge from the "super-source" node $s$ to each source
-	node $s_i$ gets assigned a capacity that is equal to the total capacity of the
-	outgoing edges from the source node $s_i$.
-	
-	\item Each incoming edge from an original "super-sink" node $t$ to each sink
-	node $t_i$ gets assigned a capacity that is equal to the total capacity of the
-	incoming edge to the sink node $t_i$.
-\end{itemize}
-
-It is easy to see that the maximum flow from $s$ to $t$ is equivalent to the maximum sum of flows in a feasible multi-commodity flow in the original network.
 
 \subsubsection{Minimum-Cost Circulation}
-Given a network $G=(V, E, \bm{u}, \bm{l}, \bm{c})$, where $c_{i j}$ is the cost, $l_{i, j}$ and $u_{i, j}$ are the capacities for the edge $(i,j)\in E$, a circulation is f function $f: E \rightarrow \mathbb{R}^{\geq 0}$ s.t.
+\begin{definition}[Minimum Cost Circulation]
+	Given a network $G=(V, E, \bm{u}, \bm{l}, \bm{c})$ with $ |V|=n $ vertices and $ |E|=m $ edges, where $c_{i j}$ is the cost, $l_{i, j}$ and $u_{i, j}$ are respectively the lower and upper capacities for the edge $(i,j)\in E$, a circulation is f function $f: E \rightarrow \mathbb{R}^{\geq 0}$ s.t.
+	
+	\begin{equation}
+		\arraycolsep=3pt
+		\def\arraystretch{1.5}
+		\begin{array}{ll}
+			l_{i j} \leq f_{i j} \leq u_{i j}, & \forall(i, j) \in E \\
+			\mathlarger{\mathlarger{\sum\limits_{j:(i, j) \in E}}} f_{i j} - \hspace{-3pt} \mathlarger{\mathlarger{\sum\limits_{j:(j, i) \in E}}} f_{j i} = 0, & \forall i \in V .
+		\end{array}
+		\label{eq:3}
+	\end{equation}
+	
+	The min-cost circulation problem is to find a circulation $f$ that minimizes the cost function $\mathlarger{\sum_{(i, j) \in E}} c_{i j} f_{i j}$. 
+	
+\end{definition}
+
+
+The formulation of minimum-cost circulation problem can be algebraically written as the following linear programming (LP) problem:
 \begin{equation}
-	\arraycolsep=3pt
-	\def\arraystretch{1.5}
-	\begin{array}{ll}
-		l_{i j} \leq f_{i j} \leq u_{i j}, & \forall(i, j) \in E \\
-		\mathlarger{\mathlarger{\sum\limits_{j:(i, j) \in E}}} f_{i j} - \hspace{-3pt} \mathlarger{\mathlarger{\sum\limits_{j:(j, i) \in E}}} f_{j i} = 0, & \forall i \in V .
-	\end{array}
-	\label{eq:3}
+	\underset{\substack{\bm{B}^{\top} \bm{f}=\bm{0} \\ l_e \leq f_e \leq u_e \forall e \in E}}{\min } \hspace{-4pt} \bm{c}^{\top} \bm{f} \quad  \text{i.e.}	\quad 
+	\underset{\substack{\bm{B}^{\top} \bm{f}=\bm{0} \\ \bm{l} \leq \bm{f} \leq \bm{u} }}{\arg \min } \hspace{4pt} \bm{c}^{\top} \bm{f}	
+	\label{eq:5}
 \end{equation}
 
-
-and min-cost circulation problem is to find a circulation $f$ that minimizes the cost function $\mathlarger{\sum_{(i, j) \in E}} c_{i j} f_{i j}$. 
-
-Given a graph $ G = (V, E) $ with $ |V|=n $ vertices and $ |E|=m $ edges, the edge-vertex incidence matrix is denoted as $ B_{m \times n} $.
+where $B_{m \times n}$,is the edge-vertex incidence matrix.
 For a directed graph, the entries of the matrix $ \bm{B} $ are defined as follows:
-
-\begin{equation}
+\vspace{-2pt}
+\begin{equation*}
 	b_{e v} =
 	\begin{cases}
 		-1, & \text{if vertex } v \text{ is the tail of edge } e, \\
 		1,  & \text{if vertex } v \text{ is the head of edge } e, \\
 		0,  & \text{if edge } v \text{ is not incident to vertex } e.
 	\end{cases}
-	\label{eq:4}
-\end{equation}
+\end{equation*}
 
 %In this matrix, each column corresponds to an edge, and each row corresponds to a vertex. The matrix elements indicate the relationship between vertices and edges, providing a concise representation of the graph's connectivity structure.
 
-Then, the formulation of minimum-cost circulation problem can be writen as the following linear programming (LP) problem:
+%Then, the formulation of minimum-cost circulation problem can be written as the following linear programming (LP) problem:
 %\begin{equation*}
 %	\bm{f}^* \stackrel{\text { def }}{=} \underset{\substack{\bm{B}^{\top} \bm{f}=\bm{0} \\ l_e \leq f_e \leq u_e \forall e \in E}}{\arg \min } \hspace{-4pt} \bm{c}^{\top} \bm{f} \text {. }	
 %\end{equation*}
-\begin{equation}
-	\underset{\substack{\bm{B}^{\top} \bm{f}=\bm{0} \\ l_e \leq f_e \leq u_e \forall e \in E}}{\min } \hspace{-4pt} \bm{c}^{\top} \bm{f} \quad  \text{i.e.}	\quad 
-	\underset{\substack{\bm{B}^{\top} \bm{f}=\bm{0} \\ \bm{l} \leq \bm{f} \leq \bm{u} }}{\arg \min } \hspace{4pt} \bm{c}^{\top} \bm{f}	
-	\label{eq:5}
-\end{equation}
+%\begin{equation}
+%	\underset{\substack{\bm{B}^{\top} \bm{f}=\bm{0} \\ l_e \leq f_e \leq u_e \forall e \in E}}{\min } \hspace{-4pt} \bm{c}^{\top} \bm{f} \quad  \text{i.e.}	\quad 
+%	\underset{\substack{\bm{B}^{\top} \bm{f}=\bm{0} \\ \bm{l} \leq \bm{f} \leq \bm{u} }}{\arg \min } \hspace{4pt} \bm{c}^{\top} \bm{f}	
+%	\label{eq:5}
+%\end{equation}
 
 %\begin{equation*}
 %	\bm{f}^* \stackrel{\text { def }}{=} \underset{\substack{\bm{B}^{\top} \bm{f}=\bm{0} \\ \bm{l} \leq \bm{f} \leq \bm{u} }}{\arg \min } \hspace{2pt} \bm{c}^{\top} \bm{f} \text {. }	
@@ -433,95 +429,151 @@ Then, the formulation of minimum-cost circulation problem can be writen as the f
 %\end{aligned}
 %\]
 
-\subsubsection{Shapley Values}
-Shapley values are defined through value functions $\vartheta$ of subsets $S$ of players in a set $N=$ $\{1,2, \ldots, n\}$. Specifically, the Shapley value $\phi_j(\vartheta)$ of player (or feature) $j$ in a game with total payoff $v$ is given by:
+\subsection{Shapley Values}
+\begin{definition} [Shapley Values]
+	Shapley values are defined through value functions $\vartheta$ of subsets $S$ of players in a set $N=$ $\{1,2, \ldots, n\}$. Specifically, the Shapley value $\phi_j(\vartheta)$ of player (or feature) $j$ in a game with total payoff $v$ is given by:
+\end{definition}
 
 \begin{equation}
 	\phi_j(\vartheta)=\mathlarger{\sum\limits_{S \subseteq N \backslash\{j\}}} \frac{|S| !(n-|S|-1) !}{n !}(\vartheta(S \cup\{j\})-\vartheta(S))
 	\label{eq:7}
 \end{equation}
 
-These Shapley values are the only constructs that jointly satisfy the Efficiency, Symmetric, Null Player and Additivity axioms:
+\begin{remark}
+Shapley values are the unique linear additive explanation that satisfies four fairness-based axioms (efficiency, symmetry, linearity (additivity), and null player)
+\end{remark} Please see Appendix A for details.
+
+\subsection{Multi-Head Attention Mechanism}
+Given an input sequence $\bm{X}\in \mathbb{R}^{t \times d}$, where $d$ is the dimensionality of the model's input vectors, the multi-head self-attention mechanism computes attention weights for each element in the sequence.
 
 \begin{itemize}
-%	\setlength\itemsep{-3mm}
+	\item \textbf{Linear Transformation}:
+	\[
+	\bm{Q}_i = \bm{XW}^Q_{i}, \quad \bm{K}_i = \bm{XW}^K_{i}, \quad \bm{V}_i = \bm{XW}^V_{i}
+	\]
+	where \(\bm{Q}_i, \bm{K}_i, \bm{V}_i \in \mathbb{R}^{t \times d_k}\), and \(\bm{W}^Q_{i}, \bm{W}^K_{i}, \bm{W}^V_{i} \in \mathbb{R}^{d \times d_k}\).
 	
-	\item \textbf{Efficiency:} The Shapley values must add up to the total value of the game, which means $\sum_{i \in N} \phi_i(\vartheta) = \vartheta(N)$
-	\item \textbf{Symmetry:} If two players are equal in their contributions to any coalition, they should receive the same Shapley value. Mathematically, if \(\vartheta(S \cup \{i\}) = \vartheta(S \cup \{j\})\) for all \(S \subseteq N \setminus \{i, j\}\), then \(\phi_i(\vartheta) = \phi_j(\vartheta)\).
-	\item \textbf{Null Player:} If a player has no impact on any coalition, their Shapley value should be zero. Mathematically, if \(\vartheta(S \cup \{i\}) = \vartheta(S)\) for all \(S \subseteq N \setminus \{i\}\), then \(\phi_i(\vartheta) = 0\).
-	\item \textbf{Additivity:} If two games are combined into a larger game, the Shapley value of a player in the combined game is the sum of their Shapley values in the individual games.
+	\item \textbf{Scaled Dot-Product Attention}:
+	\[
+	\text{Attention}_{i}(\bm{Q}_i, \bm{K}_i, \bm{V}_i) = \text{softmax}\left(\frac{\bm{Q}_i\bm{K}_i^T}{\sqrt{d_k}}\right) \bm{V}_i
+	\]
 	
+	where the division by \(\sqrt{d_k}\) is for scaling. Here \( \text{Attention}_{i}\) represent the operation for the \(i\)-th head, and the attention scores matrix $\widetilde{\bm{A}}_i$ for the $i$-th head is defined as:
+	
+	\begin{equation}
+		\widetilde{\bm{A}}_i = \text{softmax}\left(\frac{\bm{Q}_i\bm{K}_i^T}{\sqrt{d_k}}\right)
+	\end{equation}
+
+	
+	Here, $n$ is the sequence length, $d$ is the dimensionality of the model's input vectors, and $d_k$ is the dimensionality of the key vectors. The resulting matrix $\widetilde{\bm{A}}_i$ has dimensions $\widetilde{\bm{A}}_i \in \mathbb{R}^{t \times t}$, where each element $\widetilde{\bm{A}}_i(j, k)$ represents the attention weight assigned to the $j$-th element when processing the $k$-th element in the sequence. 
+	
+	
+	\item \textbf{Concatenation and Linear Projection}:
+	
+	\[
+	\text{MultiHead}(\bm{X}) = \text{Concat}(\text{Attention}_1, \text{Attention}_2, \ldots, \text{Attention}_h)\bm{W}_O
+	\]
+	
+	where \(\text{MultiHead}(\bm{X}) \in \mathbb{R}^{t \times d}\), and \(\bm{W}_O \in \mathbb{R}^{h \cdot d_k \times d}\).
+	
+	For a transformer architecture with $l$ attention layers, the attention scores at each layer can be defined as multi-head attention score:
+	 \begin{equation}
+	 \bm{\widehat{A}} = \text{Concat}(\widetilde{\bm{A}}_1, \widetilde{\bm{A}}_2, \cdots, \widetilde{\bm{A}}_h) \in \mathbb{R}^{h \times t \times t}
+	 \end{equation}
+	 
+	 We can extend this concept to a transformer architectures itself as following:
+	 \begin{equation}
+	 		 \bm{A}=\text{Concat}(\bm{\widehat{A}}_1, \bm{\widehat{A}}_2, \cdots, \bm{\widehat{A}}_l) \in \mathbb{R}^{l \times h \times t \times t}
+	 \end{equation}
+	wehre $\widehat{A}_j \in \mathbb{R}^{h \times t \times t}$ is the multi-head attention score for $j$-th attention layer.
 \end{itemize}
 
-\subsubsection{Attention Flows}
-Incorporating attention mechanisms into XAI can be accomplished using a flow network representation of the attention graph. In this representation, the graph's edges are given capacities corresponding to attention weights. By applying a maximum flow algorithm, we can determine the maximum attention flow from any node in any layer to any input node, which can be used to estimate the amount of attention directed towards the input nodes.
 
-However, to evaluate the maximum flow from all output nodes to all input nodes, we need to implement the concept of multi-commodity flow. This involves introducing a super-source $s$ and a super-target $t$ with a $u_{\infty}$ capacity. The interconnection between layers is established using attention weights, creating a layered network.
+%Let \( \text{head}_i \) represent the operation for the \(i\)-th head, \( \text{head}_i(X) = \text{Attention}_i(Q_i, K_i, V_i) \).
+%
+%The multi-head self-attention mechanism is then defined as:
+%
+%\[
+%\text{MultiHead}(X) = \text{Concat}(\text{head}_1(X), \text{head}_2(X), \ldots, \text{head}_h(X))W_O
+%\]
+%
+%where \(\text{MultiHead}(X) \in \mathbb{R}^{n \times d}\), and \(W_O \in \mathbb{R}^{h \cdot d_k \times d}\).
 
-To formalize this process, we create the attention flow matrix $\mathcal{F}$ and its integral version $\widetilde{\mathcal{F}}$ by mapping the network, which consists of $T$ tokens and $L$ layers, according to the \cref{algo:1,algo:2}:
 
-\begin{minipage}{0.6\textwidth}
+\subsubsection{Attribution Flows}
+One way to integrate the attention mechanism into XAI is by implementing a flow network representation of the graph. This representation assigns capacities to the edges of the graph that correspond to attention weights or similar values. By implementing a maximum flow algorithm, we can discover the flow from any node in any layer to any input node, which can help us estimate the quantity of attention (attribution) directed towards the input nodes.
+
+To determine the maximum flow from all output nodes to all input nodes, we must utilize the concept of multi-commodity flow. This involves creating a super-source $s$ and a super-target $t$ with a capacity $u_{\infty}$. The connectivity between layers is established by means of attention weights or similar values, resulting in the formation of a layered network.
+
+To formalize this process, assume we have the transformer architecture with $l$ attention layers , input sequence $X\in \mathbb{R}^{t \times d}$ and its attribution tensor $\bm{F} \in \mathbb{R}^{l \times t \times t}$. we create the attribution flow matrix $\mathcal{F}$ and its integral version $\widetilde{\mathcal{F}}$ employing either \cref{algo:1} or \cref{algo:2}:
+
+\begin{minipage}{0.45\textwidth}
 \begin{algorithm}[H]
-	\scriptsize
+	\footnotesize
 \begin{algorithmic}[0]
-	\Require $\mathcal{A}_{L\times T \times T}$: A tensor containing the aggregated attentions.
+	\Require $\bm{F}_{l\times t \times t}$: An attribution tensor.
 	\Ensure Tuple: $(\mathcal{F}, \widetilde{\mathcal{F}})$
-	\Function{get\_attention\_flow}{$\mathcal{A}$}
-	\State $L, T, \text{$\_$} \gets$ \text{$\mathcal{A}$.shape()}
-	\State $\text{$\beta_{\min}$} \gets \min(\mathcal{A}>0)$
+	\Function{get\_attention\_flow}{$\bm{F}$}
+	\State $l, t, \text{$\_$} \gets$ \text{$\bm{F}$.shape()}
+	\State $\text{$\beta_{\min}$} \gets \min(\bm{F}>0)$
 	\State $\text{$\beta$} \gets -\lfloor \log_{10}(\text{$\beta_{\min}$}) \rfloor$
 	\State $\gamma \gets 10^\beta$
-	\State $\mathcal{\mathcal{F}} \gets \text{np.zeros}((L + 1) \ast T + 2, (L + 1) \ast T + 2)$
-	\State $u_{\infty} \gets T$ 
+	\State $Q_{tl} \gets t \ast (l + 1) + 2$
+	\State $\mathcal{\mathcal{F}} \gets \text{np.zeros} (Q_{tl}, Q_{tl})$
+	\State $u_{\infty} \gets t$
 %	\Comment{Source and Sink: infinity capacity}
-	\For{$i$ \text{ in range}($T$)}
+	\For{$i$ \text{ in range}($t$)}
 	\State $\mathcal{F}[i+1][0] \gets u_{\infty}$
 	\EndFor
 	
-	\For{$i$ \text{ in range}($T$)}
+	\For{$i$ \text{ in range}($t$)}
 	\State $\mathcal{F}[-1][-i-2] \gets u_{\infty}$
 	\EndFor
-	\For{$\text{$\ell$}$ \text{ in range}$(0, L)$}
-	\State $\mathcal{F}[T \ast (\text{$\ell$} + 1) + 1 : T \ast (\text{$\ell$} + 2) + 1, T \ast (\text{$\ell$}) + 1 : T \ast (\text{$\ell$} + 1) + 1] \gets \mathcal{A}[\text{$\ell$}]$
+	\For{$j$ \text{ in range}$(0, l)$}
+	\State $\text{low}, \text{up} \gets t \ast j + 1, t \ast (j + 1) + 1$
+	\State $\mathcal{F}[\text{up} : \text{up}+t, \text{low} : \text{low}+t] \gets \bm{F}[j]$
 	\EndFor
 	\State $\widetilde{\mathcal{F}} \gets\text{int}(\gamma \ast \mathcal{F})$
 	\EndFunction
 \end{algorithmic}
-\caption{Get Attention Flow-Backward Approach}\label{algo:1}
+\caption{Backward Attribution Flow}\label{algo:1}
 \end{algorithm}
+\end{minipage}
+\hfill
+\begin{minipage}{0.45\textwidth}
+	\begin{algorithm}[H]
+		\footnotesize
+		\begin{algorithmic}[0]
+			\Require $\bm{F}_{l\times t \times t}$: An attribution tensor.
+			\Ensure Tuple: $(\mathcal{F}, \widetilde{\mathcal{F}})$
+			\Function{get\_attention\_flow}{$\bm{F}$}
+			\State $l, t, \text{$\_$} \gets$ \text{$\bm{F}$.shape()}
+			\State $\text{$\beta_{\min}$} \gets \min(\bm{F}>0)$
+			\State $\text{$\beta$} \gets -\lfloor \log_{10}(\text{$\beta_{\min}$}) \rfloor$
+			\State $\gamma \gets 10^\beta$
+			\State $Q_{tl} \gets t \ast (l + 1) + 2$
+			\State $\mathcal{\mathcal{F}} \gets \text{np.zeros} (Q_{tl}, Q_{tl})$
+			\State $u_{\infty} \gets t$
+			%	\Comment{Source and Sink: infinity capacity}
+			\For{$i$ \text{ in range}($t$)}
+			\State $\mathcal{F}[i+1][0] \gets u_{\infty}$
+			\EndFor
+			
+			\For{$i$ \text{ in range}($t$)}
+			\State $\mathcal{F}[-1][-i-2] \gets u_{\infty}$
+			\EndFor
+			\For{$j$ \text{ in range}$(0, l)$}
+			\State $\text{low}, \text{up} \gets t \ast j + 1, t \ast (j + 1) + 1$
+			\State $\mathcal{F}[\text{up} : \text{up}+t, \text{low} : \text{low}+t] \gets \bm{F}[j]$
+			\EndFor
+			\State $\widetilde{\mathcal{F}} \gets\text{int}(\gamma \ast \mathcal{F})$
+			\EndFunction
+		\end{algorithmic}
+		\caption{Forward Attribution Flow}\label{algo:2}
+	\end{algorithm}
 \end{minipage}
 
-\begin{minipage}{0.6\textwidth}
-\begin{algorithm}[H]
-	\scriptsize
-	\begin{algorithmic}[0]
-		\Require $\mathcal{A}_{L\times T \times T}$: A tensor containing the aggregated attentions.
-		\Ensure Tuple: $(\mathcal{F}, \widetilde{\mathcal{F}})$
-		\Function{get\_attention\_flow}{$\mathcal{A}$}
-		\State $L, T, \text{$\_$} \gets$ \text{$\mathcal{A}$.shape()}
-		\State $\text{$\beta_{\min}$} \gets \min(\mathcal{A}>0)$
-		\State $\text{$\beta$} \gets -\lfloor \log_{10}(\text{$\beta_{\min}$}) \rfloor$
-		\State $\gamma \gets 10^\beta$
-		\State $\mathcal{\mathcal{F}} \gets \text{np.zeros}((L + 1) \ast T + 2, (L + 1) \ast T + 2)$
-		\State $u_{\infty} \gets T$ 
-%		\Comment{Source and Sink: infinity capacity}
-		\For{$i$ \text{ in range}($T$)}
-		\State $\mathcal{F}[i+1][0] \gets u_{\infty}$
-		\EndFor
-		
-		\For{$i$ \text{ in range}($T$)}
-		\State $\mathcal{F}[-1][-i-2] \gets u_{\infty}$
-		\EndFor
-		\For{$\text{$\ell$}$ \text{ in range}$(0, L)$}
-		\State $\mathcal{F}[T \ast (\text{$\ell$} + 1) + 1 : T \ast (\text{$\ell$} + 2) + 1, T \ast (\text{$\ell$}) + 1 : T \ast (\text{$\ell$} + 1) + 1] \gets \mathcal{A}[\text{$\ell$}]$
-		\EndFor
-		\State $\widetilde{\mathcal{F}} \gets\text{int}(\gamma \ast \mathcal{F})$
-		\EndFunction
-	\end{algorithmic}
-	\caption{Get Attention Flow-Forward Approach}\label{algo:2}
-\end{algorithm}
-\end{minipage}
-\adddetail{check the algorthms accuracy add source and node indices to algorithms}{Behrooz}
+\adddetail{check the algorithm accuracy add source and node indices to algorithms}{Behrooz}
 
 \section{Methods}
 
@@ -584,7 +636,7 @@ Defining the log-barrier function $\phi_{\mu}(\bm{f})=-\mu \mathlarger{\sum\limi
 %\end{equation}
 
 
-It is easy to observe that as long as $\mu>0$ and our initial solution is feasible, the barrier function will ensure that any solution we find using an iterative minimization scheme, such as gradient descent or Newton's method, remains feasible. Moreover, one can show that to get an $\varepsilon$-approximate solution to the \cref{eq:8} it suffices to set $\mu \leq \frac{\varepsilon}{2 m}$ and find the optimal solution to the corresponding problem in \cref{eq:9}.
+It is easy to observe that as long as $\mu>0$ and our initial solution is feasible, the barrier function will ensure that any solution we find using an iterative minimization scheme, such as gradient descent or Newton's method, remains feasible. Moreover, one can show that to get an $\varepsilon$-approximate solution to the \cref{eq:8} it suffices to set $\mu \leq \frac{\varepsilon}{2 m}$ and find the optimal solution to the corresponding problem in \cref{eq:9}.\citep{boyd2004, bubeck2015}
 
 Finally, observe that the Hessian of the objective function of \cref{eq:9} at some point $\bm{f}$ is equal to the Hessian $\nabla^2 \phi_\mu(x)$ of the barrier function. The latter turns out to be a diagonal matrix with
 \begin{equation*}
@@ -596,7 +648,18 @@ There are many preceding study about various numerical methods and their converg
 
 \subsubsection{$\ell_1 \hspace{2pt }\text{and}  \hspace{2pt}  \ell_2$ Regularization}
 
-The similar idea is to apply $\ell_1$ and $\ell_2$ regularization.
+L1 regularization encourages sparsity in the model, which means it forces some of the feature weights to be precisely zero. This leads to feature selection, where only a subset of the most relevant features is retained in the model, which is particularly useful when dealing with high-dimensional datasets or when there is a suspicion that many features may not contribute significantly to the model's performance. On the other hand, L2 regularization constrains the magnitude of the weights, preventing them from becoming too large. L2 regularization ensures a more stable and generalized model by penalizing overly complex models with large coefficients \citep{yena}.
+
+Therefore, we can regularize the \cref{eq:8} as:
+\begin{equation}
+	\underset{\substack{\bm{B}^{\top} \bm{f}=\bm{0} \\ h(\bm{f}) \leq \bm{0} }}{\arg \min } \hspace{4pt} \bm{c}^{\top} \bm{f} +\lambda_1 \|\bm{f}\|_1 +\lambda_2 \|\bm{f}\|_2^2
+	\label{eq:10}
+\end{equation}
+
+where $\lambda_1, \lambda_2 >0$. It is is easy to show that to get an $\varepsilon$-approximate solution to the \cref{eq:8} it suffices to set $\max(\lambda_1, \lambda_2) \leq \frac{\varepsilon}{2} \min(1, \frac{1}{m \|\bm{u}\|_{\infty}})$ and find the optimal solution to the corresponding problem in \cref{eq:10}.\citep{boyd2004, bubeck2015}
+
+\section{Instantiation}
+Te main information to construct our attention flow is the tensor $\mathcal{A}_{L\times T \times T} = \left[\mathcal{A}_1, \mathcal{A}_2, \cdots, \mathcal{A}_L\right]$ where $\mathcal{A}_i= \mathbb{A_{}}$ $L$ is the number of attention layers and $T$ is the number of tokens in our sample. In the previous section 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \pagebreak
 
@@ -615,8 +678,34 @@ You may include other additional sections here.
 
 \subsection{Definitions}
 
+\subsubsection{Multi-Commodity Maximum Flow}
+The multi-commodity flow problem is an important variant of the maximum flow problem. This problem involves multiple source-sink pairs, unlike the standard maximum flow problem which only considers one source and one sink. The goal is to find multiple feasible flows, denoted by $f^1(\cdot, \cdot), \ldots, f^r(\cdot, \cdot)$, where each $f^k(\cdot, \cdot)$ represents a feasible flow from the source $s_k$ to the sink $t_k$. The objective is to ensure that all capacity constraints are satisfied, which are represented by the equation:
+
+\begin{equation*}
+	\sum_{k=1}^r f^k(i, j) \leq u(i, j) \quad \forall(i, j) \in E
+\end{equation*}
+
+Such a flow is known as a "multi-commodity" flow. A multi-commodity maximum flow problem is to maximize the function $\sum_{k=1}^r \sum_{v:(v, s_k)} f^k_{s_k v}$.
+
+
+To solve the problem of multi-commodity maximum flow, we can simplify it by transforming it into a standard maximum flow problem. This can be achieved by introducing two new nodes - a "super-source" node $s$ and a "super-sink" node $t$. The "super-source" node $s$ should be connected to all the original sources $s_i$ through edges of finite capacities, while the "super-sink" node $t$ should be connected to all the original sinks $t_i$ with edges of finite capacities:
+
+\begin{itemize}
+	\item Each outgoing edge from the "super-source" node $s$ to each source
+	node $s_i$ gets assigned a capacity that is equal to the total capacity of the
+	outgoing edges from the source node $s_i$.
+	
+	\item Each incoming edge from an original "super-sink" node $t$ to each sink
+	node $t_i$ gets assigned a capacity that is equal to the total capacity of the
+	incoming edge to the sink node $t_i$.
+\end{itemize}
+
+It is easy to see that the maximum flow from $s$ to $t$ is equivalent to the maximum sum of flows in a feasible multi-commodity flow in the original network.
+
+
 \subsubsection{Minimum Cost Circulation Problem}
-the formulation of minimum-cost circulation problem can be written as the following linear programming (LP) problem:
+
+The formulation of minimum-cost circulation problem can be written as the following linear programming (LP) problem:
 
 \begin{equation}
 	\underset{\substack{\bm{B}^{\top} \bm{f}=\bm{0} \\ l_e \leq f_e \leq u_e \forall e \in E}}{\min } \hspace{-4pt} \bm{c}^{\top} \bm{f} \quad  \text{i.e.}	\quad 
@@ -640,14 +729,14 @@ where the Lagrangian (\(\mathcal{L}\)) is defined as:
 
 Since our primal LP problem is convex, the  KKT conditions provide both necessary an sufficient conditions to find optimal primal and dual variables for the minimum cost circulation problem as follows:
 \begin{enumerate}
-	\item Stationarity:
+	\item \textbf{Stationarity}:
 	\[
 	\begin{aligned}
 		\nabla \mathcal{L}(\bm{f}, \bm{y}, \bm{s}_{u}, \bm{s}_{l}) &= \bm{c} - \bm{B}\bm{y} + \bm{s}_{u} - \bm{s}_{l} = \bm{0}
 	\end{aligned}
 	\]
 	
-	\item Complementary Slackness:
+	\item \textbf{Complementary Slackness}:
 	\[
 	\begin{aligned}
 		& \bm{s}_u^{\top}(\bm{u} - \bm{f}) = \bm{0}:  s_e^+ \cdot (u_e - f_e)= 0, \quad \forall e \in E \quad (\text{for upper-bound capacity constraints}) \\
@@ -655,7 +744,7 @@ Since our primal LP problem is convex, the  KKT conditions provide both necessar
 	\end{aligned}
 	\]
 	
-	\item Primal Feasibility:
+	\item \textbf{Primal Feasibility}:
 	\[
 	\begin{aligned}
 		\bm{B}^{\top}\bm{f} &= \bm{0} \quad (\text{flow conservation constraint}) \\
@@ -663,7 +752,7 @@ Since our primal LP problem is convex, the  KKT conditions provide both necessar
 	\end{aligned}
 	\]
 	
-	\item Dual Feasibility:
+	\item \textbf{Dual Feasibility}:
 	\[
 	\begin{aligned}
 		\bm{s}_{u}, \bm{s}_{l} &\geq \bm{0} \quad (\text{non-negativity of slack variables})
@@ -673,4 +762,25 @@ Since our primal LP problem is convex, the  KKT conditions provide both necessar
 
 
 Here, \(\bm{y}\) represents the dual variables corresponding to the equality constraint (\(\bm{B}^{\top}\bm{f} = \bm{0}\)), and \(\bm{s}_{u}\) and \(\bm{s}_{l}\) represent the dual variables corresponding to the upper and lower inequality constraints (\(l_e \leq f_e \leq u_e\)), respectively.
+
+
+\subsubsection{Shapley Values}
+
+The Shapley value, introduced by \cite{shapley1952}, concerns the cooperative game in the coalitional form $(N, \vartheta)$, where $N$ is a set of $n$ players and $\vartheta: 2^N \rightarrow \mathbb{R}$ with $\vartheta(\emptyset)=0$ is the characteristic function. In the game, the marginal contribution of the player $i$ to any coalition $S$ with $i \notin S$ is considered as $\vartheta(S \cup i)-\vartheta(S)$. These Shapley values are the only constructs that jointly satisfy the Efficiency, Symmetric, Null Player and Additivity axioms:
+
+\begin{itemize}
+	
+	\item \textbf{Efficiency:} The Shapley values must add up to the total value of the game, which means $\sum_{i \in N} \phi_i(\vartheta) = \vartheta(N)$
+	\item \textbf{Symmetry:} If two players are equal in their contributions to any coalition, they should receive the same Shapley value. Mathematically, if \(\vartheta(S \cup \{i\}) = \vartheta(S \cup \{j\})\) for all \(S \subseteq N \setminus \{i, j\}\), then \(\phi_i(\vartheta) = \phi_j(\vartheta)\).
+	\item \textbf{Null Player:} If a player has no impact on any coalition, their Shapley value should be zero. Mathematically, if \(\vartheta(S \cup \{i\}) = \vartheta(S)\) for all \(S \subseteq N \setminus \{i\}\), then \(\phi_i(\vartheta) = 0\).
+	\item \textbf{Additivity:} If two games are combined into a larger game, the Shapley value of a player in the combined game is the sum of their Shapley values in the individual games.
+	
+\end{itemize}
+
+ By considering these axioms, the attribution of a player $i$ is uniquely given by:
+
+\begin{equation*}
+	\phi_j(\vartheta)=\mathlarger{\sum\limits_{S \subseteq N \backslash\{j\}}} \frac{|S| !(n-|S|-1) !}{n !}(\vartheta(S \cup\{j\})-\vartheta(S))
+\end{equation*}
+
 \end{document}

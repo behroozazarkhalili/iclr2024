@@ -1,4 +1,4 @@
-\begin{thebibliography}{10}
+\begin{thebibliography}{12}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -36,6 +36,8 @@ Stephen~P. Boyd and Lieven Vandenberghe.
 S{\'e}bastien Bubeck.
 \newblock Convex {{Optimization}}: {{Algorithms}} and {{Complexity}}, November
   2015.
+\newblock Comment: A previous version of the manuscript was titled "Theory of
+  Convex Optimization for Machine Learning".
 
 \bibitem[Chen et~al.(2022)Chen, Kyng, Liu, Peng, Gutenberg, and
   Sachdeva]{chen2022a}
@@ -48,15 +50,25 @@ Li~Chen, Rasmus Kyng, Yang~P. Liu, Richard Peng, Maximilian~Probst Gutenberg,
 Michael~B. Cohen, Yin~Tat Lee, and Zhao Song.
 \newblock Solving {{Linear Programs}} in the {{Current Matrix Multiplication
   Time}}, October 2020.
+\newblock Comment: STOC 2019, JACM 2020.
 
 \bibitem[Ethayarajh \& Jurafsky(2021)Ethayarajh and Jurafsky]{ethayarajh2021b}
 Kawin Ethayarajh and Dan Jurafsky.
 \newblock Attention {{Flows}} are {{Shapley Value Explanations}}, May 2021.
+\newblock Comment: ACL 2021.
 
 \bibitem[Lee \& Sidford(2020)Lee and Sidford]{lee2020}
 Yin~Tat Lee and Aaron Sidford.
 \newblock Solving {{Linear Programs}} with {{Sqrt}}(rank) {{Linear System
   Solves}}, August 2020.
+\newblock Comment: The merged version of abs/1312.6677 and abs/1312.6713. It
+  contains several new results beyond these prior submissions, including a
+  nearly optimal self-concordant barrier and its relation to Lewis weight.
+
+\bibitem[Shapley(1952)]{shapley1952}
+Lloyd~S. Shapley.
+\newblock A {{Value}} for {{N-Person Games}}.
+\newblock Technical report, {RAND Corporation}, March 1952.
 
 \bibitem[van~den Brand et~al.(2021)van~den Brand, Lee, Liu, Saranurak, Sidford,
   Song, and Wang]{brand2021c}
@@ -65,5 +77,11 @@ Jan van~den Brand, Yin~Tat Lee, Yang~P. Liu, Thatchaphol Saranurak, Aaron
 \newblock Minimum {{Cost Flows}}, {{MDPs}}, and
   \${\textbackslash}ell\_1\$-{{Regression}} in {{Nearly Linear Time}} for
   {{Dense Instances}}, August 2021.
+
+\bibitem[Yen et~al.()Yen, Zhong, Hsieh, Ravikumar, and Dhillon]{yena}
+Ian E~H Yen, Kai Zhong, Cho-Jui Hsieh, Pradeep Ravikumar, and Inderjit~S
+  Dhillon.
+\newblock Sparse {{Linear Programming}} via {{Primal}} and {{Dual Augmented
+  Coordinate Descent}}.
 
 \end{thebibliography}
