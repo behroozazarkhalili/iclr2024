@@ -1,4 +1,4 @@
-\begin{thebibliography}{12}
+\begin{thebibliography}{16}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -18,6 +18,18 @@ Kyriakos Axiotis, Aleksander Madry, and Adrian Vladu.
   February 2022. {IEEE}.
 \newblock ISBN 978-1-66542-055-6.
 \newblock \doi{10.1109/FOCS52979.2021.00059}.
+
+\bibitem[Barkan et~al.(2021)Barkan, Hauon, Caciularu, Katz, Malkiel, Armstrong,
+  and Koenigstein]{barkan2021}
+Oren Barkan, Edan Hauon, Avi Caciularu, Ori Katz, Itzik Malkiel, Omri
+  Armstrong, and Noam Koenigstein.
+\newblock Grad-{{SAM}}: {{Explaining Transformers}} via {{Gradient
+  Self-Attention Maps}}.
+\newblock In \emph{Proceedings of the 30th {{ACM International Conference}} on
+  {{Information}} \& {{Knowledge Management}}}, pp.\  2882--2887, {Virtual
+  Event Queensland Australia}, October 2021. {ACM}.
+\newblock ISBN 978-1-4503-8446-9.
+\newblock \doi{10.1145/3459637.3482126}.
 
 \bibitem[Bertsimas \& Tsitsiklis(1997)Bertsimas and Tsitsiklis]{bertsimas1997}
 Dimitris Bertsimas and John~N. Tsitsiklis.
@@ -39,6 +51,20 @@ S{\'e}bastien Bubeck.
 \newblock Comment: A previous version of the manuscript was titled "Theory of
   Convex Optimization for Machine Learning".
 
+\bibitem[Chefer et~al.(2021{\natexlab{a}})Chefer, Gur, and Wolf]{chefer2021a}
+Hila Chefer, Shir Gur, and Lior Wolf.
+\newblock Transformer {{Interpretability Beyond Attention Visualization}}.
+\newblock In \emph{2021 {{IEEE}}/{{CVF Conference}} on {{Computer Vision}} and
+  {{Pattern Recognition}} ({{CVPR}})}, pp.\  782--791, {Nashville, TN, USA},
+  June 2021{\natexlab{a}}. {IEEE}.
+\newblock ISBN 978-1-66544-509-2.
+\newblock \doi{10.1109/CVPR46437.2021.00084}.
+
+\bibitem[Chefer et~al.(2021{\natexlab{b}})Chefer, Gur, and Wolf]{chefer2021d}
+Hila Chefer, Shir Gur, and Lior Wolf.
+\newblock Generic {{Attention-model Explainability}} for {{Interpreting
+  Bi-Modal}} and {{Encoder-Decoder Transformers}}, March 2021{\natexlab{b}}.
+
 \bibitem[Chen et~al.(2022)Chen, Kyng, Liu, Peng, Gutenberg, and
   Sachdeva]{chen2022a}
 Li~Chen, Rasmus Kyng, Yang~P. Liu, Richard Peng, Maximilian~Probst Gutenberg,
@@ -56,6 +82,15 @@ Michael~B. Cohen, Yin~Tat Lee, and Zhao Song.
 Kawin Ethayarajh and Dan Jurafsky.
 \newblock Attention {{Flows}} are {{Shapley Value Explanations}}, May 2021.
 \newblock Comment: ACL 2021.
+
+\bibitem[Jain et~al.(2020)Jain, Wiegreffe, Pinter, and Wallace]{jain2020}
+Sarthak Jain, Sarah Wiegreffe, Yuval Pinter, and Byron~C. Wallace.
+\newblock Learning to {{Faithfully Rationalize}} by {{Construction}}.
+\newblock In Dan Jurafsky, Joyce Chai, Natalie Schluter, and Joel Tetreault
+  (eds.), \emph{Proceedings of the 58th {{Annual Meeting}} of the
+  {{Association}} for {{Computational Linguistics}}}, pp.\  4459--4473,
+  {Online}, July 2020. {Association for Computational Linguistics}.
+\newblock \doi{10.18653/v1/2020.acl-main.409}.
 
 \bibitem[Lee \& Sidford(2020)Lee and Sidford]{lee2020}
 Yin~Tat Lee and Aaron Sidford.

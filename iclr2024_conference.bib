@@ -31,6 +31,24 @@
   file = {/home/ermia/Zotero/storage/62GWT8V7/Axiotis et al. - 2022 - Faster Sparse Minimum Cost Flow by Electrical Flow.pdf}
 }
 
+@inproceedings{barkan2021,
+  title = {Grad-{{SAM}}: {{Explaining Transformers}} via {{Gradient Self-Attention Maps}}},
+  shorttitle = {Grad-{{SAM}}},
+  booktitle = {Proceedings of the 30th {{ACM International Conference}} on {{Information}} \& {{Knowledge Management}}},
+  author = {Barkan, Oren and Hauon, Edan and Caciularu, Avi and Katz, Ori and Malkiel, Itzik and Armstrong, Omri and Koenigstein, Noam},
+  year = {2021},
+  month = oct,
+  pages = {2882--2887},
+  publisher = {{ACM}},
+  address = {{Virtual Event Queensland Australia}},
+  doi = {10.1145/3459637.3482126},
+  urldate = {2023-11-17},
+  abstract = {Transformer-based language models significantly advanced the state-of-the-art in many linguistic tasks. As this revolution continues, the ability to explain model predictions has become a major area of interest for the NLP community. In this work, we present Gradient Self-Attention Maps (Grad-SAM) - a novel gradient-based method that analyzes self-attention units and identifies the input elements that explain the model's prediction the best. Extensive evaluations on various benchmarks show that Grad-SAM obtains significant improvements over state-of-the-art alternatives.},
+  isbn = {978-1-4503-8446-9},
+  langid = {english},
+  file = {/home/ermia/Zotero/storage/9HJ3WWNF/Barkan et al. - 2021 - Grad-SAM Explaining Transformers via Gradient Sel.pdf}
+}
+
 @book{bertsimas1997,
   title = {Introduction to Linear Optimization},
   author = {Bertsimas, Dimitris and Tsitsiklis, John N.},
@@ -134,6 +152,23 @@
   file = {/home/ermia/Zotero/storage/PSL5F8RF/Bubeck - 2015 - Convex Optimization Algorithms and Complexity.pdf;/home/ermia/Zotero/storage/DM59PAI6/1405.html}
 }
 
+@inproceedings{chefer2021a,
+  title = {Transformer {{Interpretability Beyond Attention Visualization}}},
+  booktitle = {2021 {{IEEE}}/{{CVF Conference}} on {{Computer Vision}} and {{Pattern Recognition}} ({{CVPR}})},
+  author = {Chefer, Hila and Gur, Shir and Wolf, Lior},
+  year = {2021},
+  month = jun,
+  pages = {782--791},
+  publisher = {{IEEE}},
+  address = {{Nashville, TN, USA}},
+  doi = {10.1109/CVPR46437.2021.00084},
+  urldate = {2023-10-29},
+  abstract = {Self-attention techniques, and specifically Transformers, are dominating the field of text processing and are becoming increasingly popular in computer vision classification tasks. In order to visualize the parts of the image that led to a certain classification, existing methods either rely on the obtained attention maps or employ heuristic propagation along the attention graph. In this work, we propose a novel way to compute relevancy for Transformer networks. The method assigns local relevance based on the Deep Taylor Decomposition principle and then propagates these relevancy scores through the layers. This propagation involves attention layers and skip connections, which challenge existing methods. Our solution is based on a specific formulation that is shown to maintain the total relevancy across layers. We benchmark our method on very recent visual Transformer networks, as well as on a text classification problem, and demonstrate a clear advantage over the existing explainability methods. Our code is available at: https://github.com/hilachefer/Transformer- Explainability .},
+  isbn = {978-1-66544-509-2},
+  langid = {english},
+  file = {/home/ermia/Zotero/storage/KWVFE2BX/Chefer et al. - 2021 - Transformer Interpretability Beyond Attention Visu.pdf}
+}
+
 @misc{chefer2021d,
   title = {Generic {{Attention-model Explainability}} for {{Interpreting Bi-Modal}} and {{Encoder-Decoder Transformers}}},
   author = {Chefer, Hila and Gur, Shir and Wolf, Lior},
@@ -208,6 +243,22 @@
   year = {2012},
   langid = {english},
   file = {/home/ermia/Zotero/storage/XX7JWBIF/Ghaoui - 2012 - Lecture 14 Optimality Conditions for Conic Proble.pdf}
+}
+
+@inproceedings{jain2020,
+  title = {Learning to {{Faithfully Rationalize}} by {{Construction}}},
+  booktitle = {Proceedings of the 58th {{Annual Meeting}} of the {{Association}} for {{Computational Linguistics}}},
+  author = {Jain, Sarthak and Wiegreffe, Sarah and Pinter, Yuval and Wallace, Byron C.},
+  editor = {Jurafsky, Dan and Chai, Joyce and Schluter, Natalie and Tetreault, Joel},
+  year = {2020},
+  month = jul,
+  pages = {4459--4473},
+  publisher = {{Association for Computational Linguistics}},
+  address = {{Online}},
+  doi = {10.18653/v1/2020.acl-main.409},
+  urldate = {2023-11-21},
+  abstract = {In many settings it is important for one to be able to understand why a model made a particular prediction. In NLP this often entails extracting snippets of an input text `responsible for' corresponding model output; when such a snippet comprises tokens that indeed informed the model's prediction, it is a faithful explanation. In some settings, faithfulness may be critical to ensure transparency. Lei et al. (2016) proposed a model to produce faithful rationales for neural text classification by defining independent snippet extraction and prediction modules. However, the discrete selection over input tokens performed by this method complicates training, leading to high variance and requiring careful hyperparameter tuning. We propose a simpler variant of this approach that provides faithful explanations by construction. In our scheme, named FRESH, arbitrary feature importance scores (e.g., gradients from a trained model) are used to induce binary labels over token inputs, which an extractor can be trained to predict. An independent classifier module is then trained exclusively on snippets provided by the extractor; these snippets thus constitute faithful explanations, even if the classifier is arbitrarily complex. In both automatic and manual evaluations we find that variants of this simple framework yield predictive performance superior to `end-to-end' approaches, while being more general and easier to train. Code is available at https://github.com/successar/FRESH.},
+  file = {/home/ermia/Zotero/storage/BLDNU3BD/Jain et al. - 2020 - Learning to Faithfully Rationalize by Construction.pdf}
 }
 
 @misc{jambulapati2023a,
@@ -405,6 +456,24 @@
   author = {Vert, Jean-Philippe},
   langid = {english},
   file = {/home/ermia/Zotero/storage/Q55B4AJN/Vert - Nonlinear Optimization Algorithms 3 Interior-poi.pdf}
+}
+
+@misc{wang2021a,
+  title = {Shapley {{Flow}}: {{A Graph-based Approach}} to {{Interpreting Model Predictions}}},
+  shorttitle = {Shapley {{Flow}}},
+  author = {Wang, Jiaxuan and Wiens, Jenna and Lundberg, Scott},
+  year = {2021},
+  month = feb,
+  number = {arXiv:2010.14592},
+  eprint = {2010.14592},
+  primaryclass = {cs, stat},
+  publisher = {{arXiv}},
+  urldate = {2023-12-24},
+  abstract = {Many existing approaches for estimating feature importance are problematic because they ignore or hide dependencies among features. A causal graph, which encodes the relationships among input variables, can aid in assigning feature importance. However, current approaches that assign credit to nodes in the causal graph fail to explain the entire graph. In light of these limitations, we propose Shapley Flow, a novel approach to interpreting machine learning models. It considers the entire causal graph, and assigns credit to {\textbackslash}textit\{edges\} instead of treating nodes as the fundamental unit of credit assignment. Shapley Flow is the unique solution to a generalization of the Shapley value axioms to directed acyclic graphs. We demonstrate the benefit of using Shapley Flow to reason about the impact of a model's input on its output. In addition to maintaining insights from existing approaches, Shapley Flow extends the flat, set-based, view prevalent in game theory based explanation methods to a deeper, {\textbackslash}textit\{graph-based\}, view. This graph-based view enables users to understand the flow of importance through a system, and reason about potential interventions.},
+  archiveprefix = {arxiv},
+  keywords = {Computer Science - Machine Learning,Statistics - Machine Learning},
+  note = {Comment: camera ready version for AISTATS 2021},
+  file = {/home/ermia/Zotero/storage/9L6TZLUB/Wang et al. - 2021 - Shapley Flow A Graph-based Approach to Interpreti.pdf;/home/ermia/Zotero/storage/XUB9LYYL/2010.html}
 }
 
 @article{yena,
